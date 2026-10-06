@@ -1,0 +1,403 @@
+/* ==========================================================
+   PORTFOLIO.CSS
+   Evaluación Formativa N°2
+   LifeTrack
+
+   Este CSS pertenece exclusivamente a la página Portafolio.
+   De esta manera evitamos afectar los estilos originales
+   del proyecto LifeTrack.
+   ========================================================== */
+
+
+/* ==========================================================
+   PÁGINA GENERAL
+   ========================================================== */
+
+.formativa-page {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #f4f7fb;
+
+    color: #102f5e;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.formativa-hero {
+    width: 100%;
+
+    min-height: 560px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 80px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf4fd 0%,
+            #f5f8fc 55%,
+            #e8f2ff 100%
+        );
+}
+
+
+/* ==========================================================
+   TEXTO SUPERIOR
+   ========================================================== */
+
+.formativa-eyebrow {
+    margin-bottom: 20px;
+
+    color: #0d4f9f;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+.formativa-main-title {
+    margin-bottom: 20px;
+
+    color: #082e63;
+
+    font-size: 3.4rem;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+}
+
+
+.formativa-main-title span {
+    color: #1673e6;
+}
+
+
+/* ==========================================================
+   DESCRIPCIÓN
+   ========================================================== */
+
+.formativa-description {
+    max-width: 700px;
+
+    margin-bottom: 30px;
+
+    color: #334e70;
+
+    font-size: 1.1rem;
+
+    line-height: 1.7;
+}
+
+
+/* ==========================================================
+   PERFIL
+   ========================================================== */
+
+.formativa-profile {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   FOTO
+
+   IMPORTANT:
+   Utilizamos una clase exclusiva para evitar que otras
+   reglas de imágenes de LifeTrack modifiquen el tamaño.
+   ========================================================== */
+
+.formativa-profile-photo {
+    width: 190px !important;
+    height: 190px !important;
+
+    max-width: 190px !important;
+    max-height: 190px !important;
+
+    min-width: 190px;
+    min-height: 190px;
+
+    display: block;
+
+    object-fit: cover !important;
+
+    object-position: center 25% !important;
+
+    border-radius: 50% !important;
+
+    border: 7px solid #ffffff;
+
+    box-shadow:
+        0 14px 35px
+        rgba(8, 46, 99, 0.22);
+
+    margin:
+        0
+        auto
+        20px
+        auto;
+}
+
+
+/* ==========================================================
+   NOMBRE
+   ========================================================== */
+
+.formativa-profile h2 {
+    margin-bottom: 8px;
+
+    color: #082e63;
+
+    font-size: 2rem;
+
+    font-weight: 700;
+}
+
+
+.formativa-profile p {
+    margin: 0;
+
+    color: #496581;
+
+    font-size: 1.05rem;
+}
+
+
+/* ==========================================================
+   CONTENIDO SOBRE MÍ
+   ========================================================== */
+
+.formativa-content-section {
+    padding: 15px 0 30px 0;
+
+    background-color: #f4f7fb;
+}
+
+
+/* ==========================================================
+   PROYECTOS
+   ========================================================== */
+
+.formativa-projects-section {
+    padding: 80px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #082e63,
+            #104e99
+        );
+}
+
+
+/* ==========================================================
+   TÍTULOS DE SECCIONES
+   ========================================================== */
+
+.formativa-section-title {
+    margin-bottom: 45px;
+
+    text-align: center;
+
+    color: #082e63;
+
+    font-size: 2.5rem;
+
+    font-weight: 800;
+}
+
+
+.formativa-section-title.light {
+    color: white;
+}
+
+
+/* ==========================================================
+   NOTICIAS
+   ========================================================== */
+
+.formativa-news-section {
+    padding: 80px 0;
+
+    background-color: #f4f7fb;
+}
+
+
+.formativa-news-title {
+    margin-bottom: 25px;
+
+    color: #082e63;
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+}
+
+
+/* ==========================================================
+   CONTACTO
+   ========================================================== */
+
+.formativa-contact-section {
+    padding: 80px 0;
+
+    background-color: #e7effa;
+}
+
+
+.formativa-form {
+    width: 100%;
+
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background-color: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(8, 46, 99, 0.12);
+}
+
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+
+.formativa-page .btn-primary {
+    padding:
+        11px
+        25px;
+
+    border-radius: 8px;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media screen and (max-width: 991px) {
+
+    .formativa-hero {
+        min-height: auto;
+
+        padding:
+            65px
+            20px;
+    }
+
+
+    .formativa-main-title {
+        font-size: 2.8rem;
+    }
+
+
+    .formativa-profile {
+        margin-top: 25px;
+    }
+
+
+    .formativa-profile-photo {
+        width: 170px !important;
+        height: 170px !important;
+
+        max-width: 170px !important;
+        max-height: 170px !important;
+
+        min-width: 170px;
+        min-height: 170px;
+    }
+
+}
+
+
+/* ==========================================================
+   CELULAR
+   ========================================================== */
+
+@media screen and (max-width: 576px) {
+
+    .formativa-hero {
+        padding:
+            50px
+            15px;
+    }
+
+
+    .formativa-main-title {
+        font-size: 2.2rem;
+    }
+
+
+    .formativa-description {
+        font-size: 1rem;
+    }
+
+
+    .formativa-profile-photo {
+        width: 145px !important;
+        height: 145px !important;
+
+        max-width: 145px !important;
+        max-height: 145px !important;
+
+        min-width: 145px;
+        min-height: 145px;
+    }
+
+
+    .formativa-profile h2 {
+        font-size: 1.6rem;
+    }
+
+
+    .formativa-section-title {
+        font-size: 2rem;
+    }
+
+
+    .formativa-projects-section,
+    .formativa-news-section,
+    .formativa-contact-section {
+        padding:
+            55px
+            15px;
+    }
+
+
+    .formativa-form {
+        padding: 20px;
+    }
+
+}
