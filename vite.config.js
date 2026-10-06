@@ -1,7 +1,10 @@
-import react from '@vitejs/plugin-react'
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+    plugins: [react()],
+
+    // GitHub Pages publica el proyecto dentro de:
+    // https://MGLDUOCIT2025.github.io/LifeTrack-Formativa2/
+    base: "/LifeTrack-Formativa2/"
+});
