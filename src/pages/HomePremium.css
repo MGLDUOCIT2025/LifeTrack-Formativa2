@@ -1,0 +1,1642 @@
+/*
+============================================================
+HOMEPREMIUM.CSS
+PORTADA OFICIAL LIFETRACK
+============================================================
+*/
+
+
+.lt-home-page {
+
+    width: 100%;
+
+    overflow-x: hidden;
+
+    background: #f7f9fc;
+
+    color: #0c2c61;
+
+}
+
+
+.lt-section-container {
+
+    width: min(1380px, 92%);
+
+    margin: 0 auto;
+
+}
+
+
+
+/*
+============================================================
+HERO
+============================================================
+*/
+
+.lt-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 710px;
+
+    overflow: hidden;
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+.lt-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.96) 0%,
+            rgba(255,255,255,0.88) 24%,
+            rgba(255,255,255,0.58) 43%,
+            rgba(255,255,255,0.12) 72%,
+            rgba(255,255,255,0.02) 100%
+        );
+
+}
+
+
+
+/*
+============================================================
+DISTRIBUCIÓN
+============================================================
+*/
+
+.lt-hero-container {
+
+    width: min(1450px, 95%);
+
+    min-height: 710px;
+
+    margin: 0 auto;
+
+    padding-top: 25px;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+
+        minmax(430px, 1fr)
+
+        minmax(300px, 0.68fr)
+
+        minmax(520px, 0.95fr);
+
+    gap: 18px;
+
+    align-items: end;
+
+}
+
+
+
+/*
+============================================================
+TEXTO
+============================================================
+*/
+
+.lt-hero-left {
+
+    max-width: 610px;
+
+    position: relative;
+
+    z-index: 5;
+
+    padding-bottom: 90px;
+
+}
+
+
+.lt-hero-badge {
+
+    margin:
+
+        0 0 20px;
+
+    color: #176aff;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+.lt-hero-title {
+
+    margin: 0;
+
+    color: #092b60;
+
+    font-size:
+
+        clamp(
+            56px,
+            4.8vw,
+            78px
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -2.5px;
+
+    font-weight: 900;
+
+}
+
+
+.lt-hero-title span {
+
+    color: #176aff;
+
+}
+
+
+.lt-hero-text {
+
+    max-width: 540px;
+
+    margin-top: 24px;
+
+    color: #526a89;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+}
+
+
+
+/*
+============================================================
+BOTONES
+============================================================
+*/
+
+.lt-hero-buttons {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+
+.lt-btn {
+
+    min-height: 52px;
+
+    padding:
+
+        0 26px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    transition:
+
+        transform 0.2s ease;
+
+}
+
+
+.lt-btn:hover {
+
+    transform:
+
+        translateY(-2px);
+
+}
+
+
+.lt-btn-primary {
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #0b3d7e,
+            #1461bf
+        );
+
+    box-shadow:
+
+        0 12px 26px
+        rgba(16,75,150,0.22);
+
+}
+
+
+.lt-btn-secondary {
+
+    color: #0c356d;
+
+    background:
+
+        rgba(255,255,255,0.93);
+
+    border:
+
+        1px solid #cfdbeb;
+
+}
+
+
+.lt-btn-banner {
+
+    color: #0b356c;
+
+    background: white;
+
+}
+
+
+
+/*
+============================================================
+PERSONA
+============================================================
+*/
+
+.lt-person-column {
+
+    height: 650px;
+
+    position: relative;
+
+    z-index: 4;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+}
+
+
+.lt-person-image {
+
+    width: 100%;
+
+    max-width: 395px;
+
+    height: 650px;
+
+    object-fit: contain;
+
+    object-position: center bottom;
+
+    display: block;
+
+    filter:
+
+        drop-shadow(
+            0 18px 24px
+            rgba(9,33,70,0.18)
+        );
+
+}
+
+
+
+/*
+============================================================
+TABLET
+============================================================
+*/
+
+.lt-device-column {
+
+    min-height: 650px;
+
+    position: relative;
+
+    z-index: 7;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: flex-start;
+
+    padding-bottom: 52px;
+
+}
+
+
+
+/*
+============================================================
+FRASE
+
+La volvemos a dejar grande y arriba,
+como estaba cuando aprobaste la portada.
+============================================================
+*/
+
+.lt-device-phrase {
+
+    position: absolute;
+
+    top: 105px;
+
+    left: 22px;
+
+    z-index: 30;
+
+    color: #244d82;
+
+    font-size: 21px;
+
+    line-height: 1.12;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+    letter-spacing: -0.4px;
+
+    white-space: nowrap;
+
+    transform:
+
+        rotate(-5deg);
+
+    text-shadow:
+
+        0 3px 10px
+        rgba(255,255,255,0.95);
+
+}
+
+
+
+/*
+============================================================
+DASHBOARD
+============================================================
+*/
+
+.lt-dashboard {
+
+    width:
+
+        calc(100% - 28px);
+
+    max-width: 610px;
+
+    min-height: 390px;
+
+    overflow: hidden;
+
+    margin-top: 60px;
+
+    background:
+
+        rgba(255,255,255,0.96);
+
+    border:
+
+        6px solid #12386d;
+
+    border-radius: 24px;
+
+    box-shadow:
+
+        0 24px 50px
+        rgba(8,35,76,0.20);
+
+}
+
+
+.lt-dashboard-header {
+
+    min-height: 45px;
+
+    padding:
+
+        0 17px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+
+        1px solid #e5edf7;
+
+    color: #15386c;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.lt-dashboard-body {
+
+    min-height: 335px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        90px
+
+        minmax(210px,1fr)
+
+        150px;
+
+}
+
+
+.lt-dashboard-sidebar {
+
+    padding:
+
+        16px 8px;
+
+    background: #f5f8fc;
+
+    border-right:
+
+        1px solid #e5edf7;
+
+}
+
+
+.lt-dashboard-sidebar div {
+
+    margin-bottom: 9px;
+
+    padding:
+
+        9px 7px;
+
+    border-radius: 9px;
+
+    color: #6c7f98;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.lt-dashboard-sidebar .active {
+
+    color: #176aff;
+
+    background: #e5efff;
+
+}
+
+
+.lt-dashboard-center {
+
+    padding: 19px;
+
+}
+
+
+.lt-dashboard-center h3 {
+
+    margin: 0;
+
+    color: #12386d;
+
+    font-size: 24px;
+
+}
+
+
+.lt-dashboard-center > p {
+
+    margin:
+
+        5px 0 17px;
+
+    color: #8b9cb1;
+
+    font-size: 12px;
+
+}
+
+
+.lt-schedule-item {
+
+    min-height: 39px;
+
+    margin-bottom: 10px;
+
+    padding:
+
+        0 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-radius: 9px;
+
+    color: #12386d;
+
+    font-size: 10px;
+
+}
+
+
+.lt-green {
+
+    background: #d9f2e3;
+
+}
+
+
+.lt-blue {
+
+    background: #deebfd;
+
+}
+
+
+.lt-yellow {
+
+    background: #ffedc6;
+
+}
+
+
+.lt-pink {
+
+    background: #ffdee6;
+
+}
+
+
+.lt-dashboard-tasks {
+
+    padding:
+
+        19px 12px;
+
+    border-left:
+
+        1px solid #e5edf7;
+
+}
+
+
+.lt-dashboard-tasks h3 {
+
+    margin:
+
+        0 0 15px;
+
+    color: #12386d;
+
+    font-size: 19px;
+
+}
+
+
+.lt-dashboard-tasks label {
+
+    margin:
+
+        10px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #26476f;
+
+    font-size: 9px;
+
+}
+
+
+
+/*
+============================================================
+CELULAR
+============================================================
+*/
+
+.lt-phone {
+
+    width: 128px;
+
+    min-height: 250px;
+
+    position: absolute;
+
+    right: -18px;
+
+    bottom: 32px;
+
+    z-index: 20;
+
+    padding:
+
+        16px 10px;
+
+    box-sizing: border-box;
+
+    background: white;
+
+    border:
+
+        6px solid #12386d;
+
+    border-radius: 27px;
+
+    box-shadow:
+
+        0 20px 38px
+        rgba(8,35,76,0.24);
+
+}
+
+
+.lt-phone-top {
+
+    margin-bottom: 15px;
+
+    color: #12386d;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+.lt-phone h4 {
+
+    margin:
+
+        0 0 4px;
+
+    color: #12386d;
+
+    font-size: 18px;
+
+}
+
+
+.lt-phone > p {
+
+    margin: 0;
+
+    color: #667c98;
+
+    font-size: 8px;
+
+    line-height: 1.4;
+
+}
+
+
+.lt-phone-grid {
+
+    margin-top: 17px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr 1fr;
+
+    gap: 6px;
+
+}
+
+
+.lt-phone-grid div {
+
+    min-height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    background: #f2f6fb;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+}
+
+
+.lt-phone-grid span {
+
+    color: #274873;
+
+    font-size: 6px;
+
+    font-weight: 700;
+
+}
+
+
+
+/*
+============================================================
+ÁREAS
+============================================================
+*/
+
+.lt-areas-section {
+
+    position: relative;
+
+    z-index: 10;
+
+    background: white;
+
+}
+
+
+.lt-areas-container {
+
+    width: min(1380px,92%);
+
+    margin: 0 auto;
+
+    padding:
+
+        20px 28px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap: 20px;
+
+    background: white;
+
+    border-radius:
+
+        0 0 22px 22px;
+
+    box-shadow:
+
+        0 14px 35px
+        rgba(13,50,98,0.08);
+
+}
+
+
+.lt-area-card {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+}
+
+
+.lt-area-icon {
+
+    font-size: 15px;
+
+}
+
+
+.lt-area-card h4 {
+
+    margin:
+
+        0 0 4px;
+
+    color: #11376d;
+
+    font-size: 13px;
+
+}
+
+
+.lt-area-card p {
+
+    margin: 0;
+
+    color: #7c8da4;
+
+    font-size: 10px;
+
+}
+
+
+
+/*
+============================================================
+SECCIONES
+============================================================
+*/
+
+.lt-tools-section,
+.lt-products-section,
+.lt-testimonials-section {
+
+    padding:
+
+        60px 0;
+
+}
+
+
+.lt-banner-section {
+
+    padding:
+
+        10px 0 40px;
+
+}
+
+
+.lt-section-header {
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 25px;
+
+}
+
+
+.lt-section-header h2 {
+
+    margin:
+
+        0 0 8px;
+
+    color: #0c2e63;
+
+    font-size: 32px;
+
+}
+
+
+.lt-section-header p {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #637993;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+}
+
+
+.lt-section-link {
+
+    color: #176aff;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+}
+
+
+
+/*
+============================================================
+HERRAMIENTAS
+============================================================
+*/
+
+.lt-tools-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap: 18px;
+
+}
+
+
+.lt-tool-card {
+
+    min-height: 190px;
+
+    padding: 23px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 12px 28px
+        rgba(13,50,98,0.07);
+
+}
+
+
+.lt-tool-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #edf4ff;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+
+}
+
+
+.lt-tool-card h3 {
+
+    margin:
+
+        0 0 8px;
+
+    color: #12386d;
+
+    font-size: 18px;
+
+}
+
+
+.lt-tool-card p {
+
+    margin: 0;
+
+    color: #6c819b;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+
+/*
+============================================================
+BANNER
+============================================================
+*/
+
+.lt-banner-boxeo {
+
+    min-height: 155px;
+
+    padding:
+
+        30px 35px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    color: white;
+
+    border-radius: 22px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    box-shadow:
+
+        0 17px 35px
+        rgba(9,38,80,0.17);
+
+}
+
+
+.lt-banner-text h2 {
+
+    margin:
+
+        0 0 8px;
+
+    font-size: 25px;
+
+}
+
+
+.lt-banner-text p {
+
+    margin: 0;
+
+}
+
+
+
+/*
+============================================================
+PRODUCTOS
+============================================================
+*/
+
+.lt-products-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(4,1fr);
+
+    gap: 18px;
+
+}
+
+
+.lt-product-card {
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 12px 28px
+        rgba(13,50,98,0.07);
+
+}
+
+
+.lt-product-image-box {
+
+    height: 190px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5f8fc;
+
+}
+
+
+.lt-product-image-box img {
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+}
+
+
+.lt-product-info {
+
+    padding: 18px;
+
+}
+
+
+.lt-product-info h3 {
+
+    margin:
+
+        0 0 8px;
+
+    color: #12386d;
+
+    font-size: 16px;
+
+}
+
+
+.lt-product-price {
+
+    color: #176aff;
+
+    font-weight: 900;
+
+}
+
+
+.lt-mini-button {
+
+    display: inline-flex;
+
+    padding:
+
+        9px 14px;
+
+    color: #12386d;
+
+    background: #edf4ff;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+
+/*
+============================================================
+TESTIMONIOS
+============================================================
+*/
+
+.lt-testimonials-grid {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(3,1fr);
+
+    gap: 18px;
+
+}
+
+
+.lt-testimonial-card {
+
+    min-height: 130px;
+
+    padding: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 12px 28px
+        rgba(13,50,98,0.07);
+
+}
+
+
+.lt-testimonial-photo {
+
+    width: 70px;
+
+    height: 70px;
+
+    min-width: 70px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+.lt-testimonial-content p {
+
+    margin:
+
+        0 0 8px;
+
+    color: #617792;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+.lt-testimonial-content h4 {
+
+    margin: 0;
+
+    color: #12386d;
+
+    font-size: 13px;
+
+}
+
+
+.lt-testimonial-content span {
+
+    color: #f5a000;
+
+}
+
+
+
+/*
+============================================================
+RESPONSIVE
+============================================================
+*/
+
+@media (max-width: 1250px) {
+
+    .lt-hero-container {
+
+        grid-template-columns:
+
+            40%
+
+            22%
+
+            38%;
+
+    }
+
+
+    .lt-hero-title {
+
+        font-size: 56px;
+
+    }
+
+
+    .lt-person-image {
+
+        max-width: 340px;
+
+        height: 600px;
+
+    }
+
+
+    .lt-dashboard {
+
+        transform:
+
+            scale(0.92);
+
+        transform-origin:
+
+            left bottom;
+
+        width: 610px;
+
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+
+    .lt-hero-container {
+
+        grid-template-columns: 1fr;
+
+        padding:
+
+            45px 0;
+
+    }
+
+
+    .lt-hero-left {
+
+        padding-bottom: 0;
+
+    }
+
+
+    .lt-person-column {
+
+        height: 500px;
+
+    }
+
+
+    .lt-person-image {
+
+        height: 500px;
+
+        max-width: 320px;
+
+    }
+
+
+    .lt-device-column {
+
+        min-height: 520px;
+
+        justify-content: center;
+
+        padding-bottom: 0;
+
+    }
+
+
+    .lt-device-phrase {
+
+        top: 15px;
+
+        left: 50%;
+
+        transform:
+
+            translateX(-50%)
+
+            rotate(-4deg);
+
+        text-align: center;
+
+    }
+
+
+    .lt-dashboard {
+
+        width: min(610px,90%);
+
+        transform: none;
+
+        margin-top: 70px;
+
+    }
+
+
+    .lt-phone {
+
+        right: 5%;
+
+    }
+
+
+    .lt-tools-grid,
+    .lt-products-grid {
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .lt-testimonials-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .lt-hero {
+
+        min-height: auto;
+
+    }
+
+
+    .lt-hero-container {
+
+        width: 90%;
+
+    }
+
+
+    .lt-hero-title {
+
+        font-size: 44px;
+
+    }
+
+
+    .lt-hero-text {
+
+        font-size: 15px;
+
+    }
+
+
+    .lt-hero-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .lt-btn {
+
+        width: 100%;
+
+        box-sizing: border-box;
+
+    }
+
+
+    .lt-person-column {
+
+        height: 420px;
+
+    }
+
+
+    .lt-person-image {
+
+        height: 420px;
+
+        max-width: 270px;
+
+    }
+
+
+    .lt-device-column {
+
+        min-height: auto;
+
+        display: block;
+
+        padding-top: 100px;
+
+    }
+
+
+    .lt-device-phrase {
+
+        top: 25px;
+
+        font-size: 18px;
+
+    }
+
+
+    .lt-dashboard {
+
+        width: 100%;
+
+        margin-top: 0;
+
+    }
+
+
+    .lt-dashboard-body {
+
+        grid-template-columns:
+
+            75px 1fr;
+
+    }
+
+
+    .lt-dashboard-tasks {
+
+        display: none;
+
+    }
+
+
+    .lt-phone {
+
+        display: none;
+
+    }
+
+
+    .lt-areas-container {
+
+        grid-template-columns:
+
+            repeat(2,1fr);
+
+    }
+
+
+    .lt-tools-grid,
+    .lt-products-grid {
+
+        grid-template-columns:
+
+            1fr;
+
+    }
+
+
+    .lt-section-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .lt-banner-boxeo {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+}

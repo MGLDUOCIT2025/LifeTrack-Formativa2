@@ -1,119 +1,225 @@
+/*
+============================================================
+BLOG.JSX
+LifeTrack
+============================================================
+*/
+
+import "./BlogPremium.css";
+
+
+import heroPersona from "../assets/lifetrack/hero-persona.png";
+
+import heroMontanas from "../assets/lifetrack/hero-montanas.png";
+
+import bannerBoxeo from "../assets/lifetrack/banner-boxeo.png";
+
+import cuaderno from "../assets/lifetrack/cuaderno.png";
+
+import guantes from "../assets/lifetrack/guantes.png";
+
+import shaker from "../assets/lifetrack/shaker.png";
+
+
 function Blog() {
 
-  const publicaciones = [
+    const articulos = [
 
-    {
-      id: 1,
-      categoria: "LifeTrack",
-      titulo:
-        "Cómo nació LifeTrack",
-      texto:
-        "LifeTrack nació de la necesidad de organizar una rutina exigente entre trabajo, universidad, gimnasio, boxeo y vida personal.",
-      fecha:
-        "5 de octubre de 2026"
-    },
+        {
+            categoria: "PRODUCTIVIDAD",
 
-    {
-      id: 2,
-      categoria: "Productividad",
-      titulo:
-        "Organizar el día también es cuidar tu tiempo",
-      texto:
-        "Planificar las actividades permite visualizar prioridades y aprovechar mejor cada momento del día.",
-      fecha:
-        "5 de octubre de 2026"
-    },
+            titulo:
+                "Cómo organizar una semana realmente productiva",
 
-    {
-      id: 3,
-      categoria: "Hábitos",
-      titulo:
-        "Pequeños avances pueden generar grandes cambios",
-      texto:
-        "LifeTrack busca transformar metas grandes en actividades simples que puedan realizarse día a día.",
-      fecha:
-        "5 de octubre de 2026"
-    }
+            texto:
+                "Aprende a equilibrar trabajo, estudios y vida personal.",
 
-  ];
+            imagen:
+                heroMontanas,
+        },
+
+        {
+            categoria: "ESTUDIOS",
+
+            titulo:
+                "Estudiar cuando trabajas tiempo completo",
+
+            texto:
+                "Planificación inteligente para aprovechar cada hora.",
+
+            imagen:
+                cuaderno,
+        },
+
+        {
+            categoria: "BOXEO",
+
+            titulo:
+                "Disciplina antes que motivación",
+
+            texto:
+                "La constancia construye resultados.",
+
+            imagen:
+                bannerBoxeo,
+        },
+
+        {
+            categoria: "ENTRENAMIENTO",
+
+            titulo:
+                "Entrenar también fortalece la mente",
+
+            texto:
+                "Tu cuerpo y tu concentración trabajan juntos.",
+
+            imagen:
+                guantes,
+        },
+
+        {
+            categoria: "HÁBITOS",
+
+            titulo:
+                "Pequeños hábitos, grandes cambios",
+
+            texto:
+                "Las acciones simples generan resultados sostenibles.",
+
+            imagen:
+                shaker,
+        },
+
+        {
+            categoria: "LIFETRACK",
+
+            titulo:
+                "Construyendo una vida en equilibrio",
+
+            texto:
+                "Una rutina organizada permite avanzar en todas tus áreas.",
+
+            imagen:
+                heroPersona,
+        },
+
+    ];
 
 
-  return (
+    return (
 
-    <section className="seccion-general">
-
-      <div className="container">
-
-        <div className="cabecera-pagina">
-
-          <span>
-            LIFETRACK BLOG
-          </span>
-
-          <h1>
-            Historias, organización y progreso
-          </h1>
-
-          <p>
-            El espacio donde contamos cómo nació
-            LifeTrack y compartimos ideas para
-            organizar mejor nuestra vida.
-          </p>
-
-        </div>
+        <main className="blog-page">
 
 
-        <div className="grid-blog">
+            {/* HERO */}
 
-          {
-            publicaciones.map(
-              publicacion => (
+            <section
+                className="blog-hero"
+                style={{
+                    backgroundImage:
+                        `url(${heroPersona})`,
+                }}
+            >
 
-                <article
-                  className="blog-card"
-                  key={
-                    publicacion.id
-                  }
-                >
+                <div className="blog-hero-overlay"></div>
 
-                  <span>
-                    {
-                      publicacion.categoria
-                    }
-                  </span>
 
-                  <h2>
-                    {
-                      publicacion.titulo
-                    }
-                  </h2>
+                <div className="blog-container blog-hero-content">
 
-                  <p>
-                    {
-                      publicacion.texto
-                    }
-                  </p>
+                    <span>
+                        BLOG · SEGUIMIENTO DE VIDA
+                    </span>
 
-                  <small>
-                    {
-                      publicacion.fecha
-                    }
-                  </small>
 
-                </article>
+                    <h1>
 
-              )
-            )
-          }
+                        Ideas para construir
 
-        </div>
+                        <br />
 
-      </div>
+                        <strong>
+                            una vida mejor.
+                        </strong>
 
-    </section>
+                    </h1>
 
-  );
+
+                    <p>
+
+                        Productividad, estudios,
+                        entrenamiento, hábitos y
+                        crecimiento personal.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            {/* ARTÍCULOS */}
+
+            <section className="blog-content">
+
+                <div className="blog-container blog-grid">
+
+
+                    {articulos.map((articulo) => (
+
+                        <article
+                            className="blog-card"
+                            key={articulo.titulo}
+                        >
+
+
+                            <img
+                                src={articulo.imagen}
+                                alt={articulo.titulo}
+                            />
+
+
+                            <div>
+
+                                <span>
+                                    {articulo.categoria}
+                                </span>
+
+
+                                <h2>
+                                    {articulo.titulo}
+                                </h2>
+
+
+                                <p>
+                                    {articulo.texto}
+                                </p>
+
+
+                                <button type="button">
+
+                                    Leer artículo →
+
+                                </button>
+
+                            </div>
+
+
+                        </article>
+
+                    ))}
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    );
 
 }
+
 
 export default Blog;

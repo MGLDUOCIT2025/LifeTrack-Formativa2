@@ -1,7 +1,6 @@
 /*
 ============================================================
 PORTAFOLIO.JSX
-
 Evaluación Formativa N°2
 Proyecto LifeTrack
 ============================================================
@@ -9,763 +8,764 @@ Proyecto LifeTrack
 
 import { useState } from "react";
 
+
 import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  Alert
+
+    Container,
+    Row,
+    Col,
+    Button,
+    Form,
+    Alert,
+
 } from "react-bootstrap";
 
 
-/*
-============================================================
-COMPONENTES REUTILIZABLES
-============================================================
-*/
+/* =========================================================
+   COMPONENTES
+========================================================= */
 
-import AboutMe from "../components/AboutMe.jsx";
-import PortfolioProjectCard from "../components/PortfolioProjectCard.jsx";
-import NewsCard from "../components/NewsCard.jsx";
+import AboutMe
+    from "../components/AboutMe.jsx";
 
+import PortfolioProjectCard
+    from "../components/PortfolioProjectCard.jsx";
 
-/*
-============================================================
-ARCHIVOS JSON
-============================================================
-*/
-
-import proyectos from "../data/proyectos.json";
-import noticias from "../data/noticias.json";
+import NewsCard
+    from "../components/NewsCard.jsx";
 
 
-/*
-============================================================
-ESTILOS
-============================================================
-*/
+/* =========================================================
+   DATOS
+========================================================= */
+
+import proyectos
+    from "../data/proyectos.json";
+
+import noticias
+    from "../data/noticias.json";
+
+
+/* =========================================================
+   CSS
+========================================================= */
 
 import "../portfolio.css";
 
 
-/*
-============================================================
-COMPONENTE PRINCIPAL
-============================================================
-*/
-
 function Portafolio({ onEnviarMensaje }) {
 
-  /*
-  ==========================================================
-  STATE
-  ==========================================================
-  */
 
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [mensaje, setMensaje] = useState("");
+    /* =====================================================
+       STATE FORMULARIO
+    ===================================================== */
 
-  const [error, setError] = useState("");
-  const [mensajeExito, setMensajeExito] = useState("");
+    const [nombre, setNombre] =
+        useState("");
 
+    const [correo, setCorreo] =
+        useState("");
 
-  /*
-  ==========================================================
-  VALIDAR CORREO
-  ==========================================================
-  */
+    const [mensaje, setMensaje] =
+        useState("");
 
-  const validarCorreo = (correoUsuario) => {
+    const [error, setError] =
+        useState("");
 
-    const expresionCorreo =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    return expresionCorreo.test(correoUsuario);
-
-  };
+    const [mensajeExito, setMensajeExito] =
+        useState("");
 
 
-  /*
-  ==========================================================
-  ENVÍO DEL FORMULARIO
-  ==========================================================
-  */
+    /* =====================================================
+       VALIDAR CORREO
+    ===================================================== */
 
-  const manejarEnvio = (evento) => {
+    const validarCorreo =
+        (correoUsuario) => {
 
-    evento.preventDefault();
+            const expresionCorreo =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    setError("");
-    setMensajeExito("");
+            return expresionCorreo.test(
+                correoUsuario
+            );
 
-
-    /*
-    ========================================================
-    VALIDAR CAMPOS VACÍOS
-    ========================================================
-    */
-
-    if (
-      nombre.trim() === "" ||
-      correo.trim() === "" ||
-      mensaje.trim() === ""
-    ) {
-
-      /*
-      IMPORTANTE:
-
-      Este texto debe coincidir exactamente
-      con la prueba unitaria.
-      */
-
-      setError(
-        "Todos los campos son obligatorios."
-      );
-
-      return;
-
-    }
+        };
 
 
-    /*
-    ========================================================
-    VALIDAR CORREO
-    ========================================================
-    */
+    /* =====================================================
+       ENVÍO FORMULARIO
+    ===================================================== */
 
-    if (!validarCorreo(correo)) {
+    const manejarEnvio = (evento) => {
 
-      setError(
-        "Debes ingresar un correo electrónico válido."
-      );
+        evento.preventDefault();
 
-      return;
+        setError("");
 
-    }
+        setMensajeExito("");
 
 
-    /*
-    ========================================================
-    DATOS DEL FORMULARIO
-    ========================================================
-    */
+        if (
 
-    const datosFormulario = {
+            nombre.trim() === ""
 
-      nombre,
-      correo,
-      mensaje
+            ||
+
+            correo.trim() === ""
+
+            ||
+
+            mensaje.trim() === ""
+
+        ) {
+
+            setError(
+                "Debes completar todos los campos."
+            );
+
+            return;
+
+        }
+
+
+        if (!validarCorreo(correo)) {
+
+            setError(
+                "Debes ingresar un correo electrónico válido."
+            );
+
+            return;
+
+        }
+
+
+        const datosFormulario = {
+
+            nombre,
+
+            correo,
+
+            mensaje,
+
+        };
+
+
+        /*
+        Si la evaluación envía un MOCK,
+        también seguirá funcionando.
+        */
+
+        if (onEnviarMensaje) {
+
+            onEnviarMensaje(
+                datosFormulario
+            );
+
+        }
+
+
+        setMensajeExito(
+            "Mensaje enviado correctamente."
+        );
+
+
+        setNombre("");
+
+        setCorreo("");
+
+        setMensaje("");
 
     };
 
 
-    /*
-    ========================================================
-    MOCK PARA LAS PRUEBAS
-    ========================================================
+    /* =====================================================
+       CATEGORÍAS NOTICIAS
+    ===================================================== */
 
-    Si la prueba envía una función simulada mediante
-    onEnviarMensaje, se ejecuta aquí.
+    const categoriasNoticias = [
 
-    Jasmine puede controlar esta función mediante
-    jasmine.createSpy().
-    ========================================================
-    */
+        ...new Set(
 
-    if (onEnviarMensaje) {
+            noticias.map(
+                (noticia) =>
+                    noticia.categoria
+            )
 
-      onEnviarMensaje(datosFormulario);
+        ),
 
-    }
+    ];
 
 
-    /*
-    ========================================================
-    MENSAJE DE ÉXITO
-    ========================================================
-    */
+    return (
 
-    setMensajeExito(
-      "Mensaje enviado correctamente."
-    );
+        <div className="portfolio-page">
 
 
-    /*
-    ========================================================
-    LIMPIAR FORMULARIO
-    ========================================================
-    */
+            {/* =================================================
+                HERO
+            ================================================= */}
 
-    setNombre("");
-    setCorreo("");
-    setMensaje("");
+            <section className="portfolio-hero">
 
-  };
+                <Container>
 
+                    <Row className="align-items-center">
 
-  /*
-  ==========================================================
-  CATEGORÍAS DE NOTICIAS
-  ==========================================================
-  */
 
-  const categoriasNoticias = [
-
-    ...new Set(
-
-      noticias.map(
-        (noticia) => noticia.categoria
-      )
-
-    )
-
-  ];
-
-
-  /*
-  ==========================================================
-  RETURN
-  ==========================================================
-  */
-
-  return (
-
-    <div className="portfolio-page">
-
-
-      {/* ==================================================
-          HERO DEL PORTAFOLIO
-      ================================================== */}
-
-      <section className="portfolio-hero">
-
-        <Container>
-
-          <Row className="align-items-center">
-
-
-            {/* ==============================================
-                TEXTO DEL PORTAFOLIO
-            ============================================== */}
-
-            <Col
-              xs={12}
-              lg={7}
-            >
-
-              <div className="portfolio-intro">
-
-                <p className="portfolio-label">
-
-                  EVALUACIÓN FORMATIVA N°2
-
-                </p>
-
-
-                <h1 className="portfolio-title">
-
-                  Mi Portafolio{" "}
-
-                  <span>
-
-                    LifeTrack
-
-                  </span>
-
-                </h1>
-
-
-                <p className="portfolio-description">
-
-                  Portafolio desarrollado utilizando React,
-                  React Bootstrap, componentes reutilizables,
-                  propiedades, State, archivos JSON, eventos
-                  y pruebas unitarias.
-
-                </p>
-
-
-                <Button
-                  href="#proyectos-portafolio"
-                  variant="primary"
-                  size="lg"
-                >
-
-                  Ver mis proyectos
-
-                </Button>
-
-              </div>
-
-            </Col>
-
-
-            {/* ==============================================
-                FOTO PERSONAL
-            ============================================== */}
-
-            <Col
-              xs={12}
-              lg={5}
-              className="text-center mt-5 mt-lg-0"
-            >
-
-              <div className="portfolio-profile">
-
-                {/*
-                La foto se encuentra en:
-
-                public/mario.jpg
-
-                BASE_URL permite que la imagen funcione
-                tanto en localhost como en GitHub Pages.
-                */}
-
-                <img
-                  src={`${import.meta.env.BASE_URL}mario.jpg`}
-                  alt="Mario González"
-                  className="portfolio-photo"
-                />
-
-
-                <h2 className="portfolio-name">
-
-                  Mario González
-
-                </h2>
-
-
-                <p className="portfolio-career">
-
-                  Estudiante de Ingeniería en Informática
-
-                </p>
-
-              </div>
-
-            </Col>
-
-          </Row>
-
-        </Container>
-
-      </section>
-
-
-      {/* ==================================================
-          SOBRE MÍ
-      ================================================== */}
-
-      <section className="portfolio-section">
-
-        <Container>
-
-          <div className="portfolio-section-header">
-
-            <p className="portfolio-label">
-
-              PERFIL
-
-            </p>
-
-
-            <h2 className="portfolio-section-title">
-
-              Sobre mí
-
-            </h2>
-
-          </div>
-
-
-          <AboutMe />
-
-        </Container>
-
-      </section>
-
-
-      {/* ==================================================
-          PROYECTOS
-      ================================================== */}
-
-      <section
-        id="proyectos-portafolio"
-        className="portfolio-section portfolio-projects-section"
-      >
-
-        <Container>
-
-          <div className="portfolio-section-header">
-
-            <p className="portfolio-label">
-
-              PROYECTOS
-
-            </p>
-
-
-            <h2 className="portfolio-section-title">
-
-              Mis proyectos
-
-            </h2>
-
-
-            <p className="portfolio-section-description">
-
-              Proyectos desarrollados durante mi formación
-              académica en distintas áreas de programación,
-              desarrollo web y bases de datos.
-
-            </p>
-
-          </div>
-
-
-          <Row className="g-4">
-
-            {/*
-            =================================================
-            MAP DE PROYECTOS
-
-            Se recorre proyectos.json y se genera
-            una tarjeta por cada proyecto.
-            =================================================
-            */}
-
-            {proyectos.map(
-              (proyecto, indice) => (
-
-                <Col
-                  xs={12}
-                  md={6}
-                  lg={4}
-                  key={
-                    proyecto.id ||
-                    indice
-                  }
-                >
-
-                  <PortfolioProjectCard
-                    proyecto={proyecto}
-                  />
-
-                </Col>
-
-              )
-            )}
-
-          </Row>
-
-        </Container>
-
-      </section>
-
-
-      {/* ==================================================
-          NOTICIAS
-      ================================================== */}
-
-      <section className="portfolio-section">
-
-        <Container>
-
-          <div className="portfolio-section-header">
-
-            <p className="portfolio-label">
-
-              ACTUALIDAD
-
-            </p>
-
-
-            <h2 className="portfolio-section-title">
-
-              Noticias
-
-            </h2>
-
-
-            <p className="portfolio-section-description">
-
-              Contenido relacionado con LifeTrack,
-              React, desarrollo web y tecnología.
-
-            </p>
-
-          </div>
-
-
-          {/*
-          ===================================================
-          NOTICIAS AGRUPADAS POR CATEGORÍA
-          ===================================================
-          */}
-
-          {categoriasNoticias.map(
-            (categoria) => (
-
-              <div
-                key={categoria}
-                className="portfolio-news-category"
-              >
-
-                <h3 className="portfolio-news-category-title">
-
-                  {categoria}
-
-                </h3>
-
-
-                <Row className="g-4">
-
-                  {noticias
-                    .filter(
-                      (noticia) =>
-                        noticia.categoria ===
-                        categoria
-                    )
-                    .map(
-                      (noticia, indice) => (
+                        {/* ===============================
+                            TEXTO
+                        =============================== */}
 
                         <Col
-                          xs={12}
-                          md={6}
-                          key={
-                            noticia.id ||
-                            indice
-                          }
+                            xs={12}
+                            lg={7}
                         >
 
-                          <NewsCard
-                            noticia={noticia}
-                          />
+                            <div className="portfolio-intro">
+
+                                <p className="portfolio-label">
+
+                                    EVALUACIÓN FORMATIVA N°2
+
+                                </p>
+
+
+                                <h1 className="portfolio-title">
+
+                                    Mi Portafolio{" "}
+
+                                    <span>
+
+                                        LifeTrack
+
+                                    </span>
+
+                                </h1>
+
+
+                                <p className="portfolio-description">
+
+                                    Portafolio desarrollado utilizando
+                                    React, React Bootstrap, componentes
+                                    reutilizables, propiedades, State,
+                                    archivos JSON, eventos y pruebas
+                                    unitarias.
+
+                                </p>
+
+
+                                <Button
+
+                                    href="#proyectos-portafolio"
+
+                                    variant="primary"
+
+                                    size="lg"
+
+                                >
+
+                                    Ver mis proyectos
+
+                                </Button>
+
+                            </div>
 
                         </Col>
 
-                      )
-                    )}
 
-                </Row>
+                        {/* ===============================
+                            PERFIL
+                        =============================== */}
 
-              </div>
+                        <Col
 
-            )
-          )}
+                            xs={12}
 
-        </Container>
+                            lg={5}
 
-      </section>
+                            className="text-center mt-5 mt-lg-0"
+
+                        >
+
+                            <div className="portfolio-profile">
 
 
-      {/* ==================================================
-          CONTACTO
-      ================================================== */}
+                                <img
 
-      <section className="portfolio-section portfolio-contact-section">
+                                    src={
+                                        `${import.meta.env.BASE_URL}mario.jpg`
+                                    }
 
-        <Container>
+                                    alt="Mario González"
 
-          <Row className="justify-content-center">
+                                    className="portfolio-photo"
 
-            <Col
-              xs={12}
-              lg={9}
+                                />
+
+
+                                <h2 className="portfolio-name">
+
+                                    Mario González
+
+                                </h2>
+
+
+                                <p className="portfolio-career">
+
+                                    Estudiante de Ingeniería
+                                    en Informática
+
+                                </p>
+
+                            </div>
+
+                        </Col>
+
+
+                    </Row>
+
+                </Container>
+
+            </section>
+
+
+            {/* =================================================
+                SOBRE MÍ
+            ================================================= */}
+
+            <section className="portfolio-section">
+
+                <Container>
+
+                    <div className="portfolio-section-header">
+
+                        <p className="portfolio-label">
+
+                            PERFIL
+
+                        </p>
+
+
+                        <h2 className="portfolio-section-title">
+
+                            Sobre mí
+
+                        </h2>
+
+                    </div>
+
+
+                    <AboutMe />
+
+                </Container>
+
+            </section>
+
+
+            {/* =================================================
+                PROYECTOS
+            ================================================= */}
+
+            <section
+
+                id="proyectos-portafolio"
+
+                className="
+                    portfolio-section
+                    portfolio-projects-section
+                "
+
             >
 
-              <div className="portfolio-contact-header">
+                <Container>
 
-                <p className="portfolio-label">
+                    <div className="portfolio-section-header">
 
-                  CONTACTO
+                        <p className="portfolio-label">
 
-                </p>
+                            PROYECTOS
 
+                        </p>
 
-                <h2 className="portfolio-section-title">
 
-                  Contacto
+                        <h2 className="portfolio-section-title">
 
-                </h2>
+                            Mis proyectos
 
+                        </h2>
 
-                <p className="portfolio-section-description">
 
-                  Completa el formulario para enviar
-                  un mensaje.
+                        <p className="portfolio-section-description">
 
-                </p>
+                            Proyectos desarrollados durante
+                            mi formación académica en distintas
+                            áreas de programación, desarrollo
+                            web y bases de datos.
 
-              </div>
+                        </p>
 
+                    </div>
 
-              <div className="portfolio-contact-card">
 
+                    <Row className="g-4">
 
-                {/* =========================================
-                    MENSAJE DE ERROR
-                ========================================= */}
+                        {proyectos.map(
+                            (proyecto, indice) => (
 
-                {error && (
+                                <Col
 
-                  <Alert variant="danger">
+                                    xs={12}
 
-                    {error}
+                                    md={6}
 
-                  </Alert>
+                                    lg={4}
 
-                )}
+                                    key={
+                                        proyecto.id
+                                        ||
+                                        indice
+                                    }
 
+                                >
 
-                {/* =========================================
-                    MENSAJE EXITOSO
-                ========================================= */}
+                                    <PortfolioProjectCard
 
-                {mensajeExito && (
+                                        proyecto={
+                                            proyecto
+                                        }
 
-                  <Alert variant="success">
+                                    />
 
-                    {mensajeExito}
+                                </Col>
 
-                  </Alert>
+                            )
+                        )}
 
-                )}
+                    </Row>
 
+                </Container>
 
-                {/* =========================================
-                    FORMULARIO
-                ========================================= */}
+            </section>
 
-                <Form
-                  onSubmit={manejarEnvio}
-                >
 
+            {/* =================================================
+                NOTICIAS
+            ================================================= */}
 
-                  {/* NOMBRE */}
+            <section className="portfolio-section">
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="nombre"
-                  >
+                <Container>
 
-                    <Form.Label>
+                    <div className="portfolio-section-header">
 
-                      Nombre
+                        <p className="portfolio-label">
 
-                    </Form.Label>
+                            ACTUALIDAD
 
+                        </p>
 
-                    <Form.Control
-                      type="text"
-                      placeholder="Ingresa tu nombre"
-                      value={nombre}
-                      onChange={
-                        (evento) =>
-                          setNombre(
-                            evento.target.value
-                          )
-                      }
-                    />
 
-                  </Form.Group>
+                        <h2 className="portfolio-section-title">
 
+                            Noticias
 
-                  {/* CORREO */}
+                        </h2>
 
-                  <Form.Group
-                    className="mb-3"
-                    controlId="correo"
-                  >
 
-                    <Form.Label>
+                        <p className="portfolio-section-description">
 
-                      Correo electrónico
+                            Contenido relacionado con LifeTrack,
+                            React, desarrollo web y tecnología.
 
-                    </Form.Label>
+                        </p>
 
+                    </div>
 
-                    <Form.Control
-                      type="email"
-                      placeholder="correo@ejemplo.cl"
-                      value={correo}
-                      onChange={
-                        (evento) =>
-                          setCorreo(
-                            evento.target.value
-                          )
-                      }
-                    />
 
-                  </Form.Group>
+                    {categoriasNoticias.map(
+                        (categoria) => (
 
+                            <div
 
-                  {/* MENSAJE */}
+                                key={categoria}
 
-                  <Form.Group
-                    className="mb-4"
-                    controlId="mensaje"
-                  >
+                                className="portfolio-news-category"
 
-                    <Form.Label>
+                            >
 
-                      Mensaje
+                                <h3 className="portfolio-news-category-title">
 
-                    </Form.Label>
+                                    {categoria}
 
+                                </h3>
 
-                    <Form.Control
-                      as="textarea"
-                      rows={5}
-                      placeholder="Escribe tu mensaje"
-                      value={mensaje}
-                      onChange={
-                        (evento) =>
-                          setMensaje(
-                            evento.target.value
-                          )
-                      }
-                    />
 
-                  </Form.Group>
+                                <Row className="g-4">
 
+                                    {noticias
 
-                  {/* BOTÓN */}
+                                        .filter(
+                                            (noticia) =>
+                                                noticia.categoria
+                                                ===
+                                                categoria
+                                        )
 
-                  <Button
-                    variant="primary"
-                    type="submit"
-                  >
+                                        .map(
+                                            (noticia, indice) => (
 
-                    Enviar mensaje
+                                                <Col
 
-                  </Button>
+                                                    xs={12}
 
-                </Form>
+                                                    md={6}
 
-              </div>
+                                                    key={
+                                                        noticia.id
+                                                        ||
+                                                        indice
+                                                    }
 
-            </Col>
+                                                >
 
-          </Row>
+                                                    <NewsCard
 
-        </Container>
+                                                        noticia={
+                                                            noticia
+                                                        }
 
-      </section>
+                                                    />
 
-    </div>
+                                                </Col>
 
-  );
+                                            )
+                                        )}
+
+                                </Row>
+
+                            </div>
+
+                        )
+                    )}
+
+                </Container>
+
+            </section>
+
+
+            {/* =================================================
+                CONTACTO
+            ================================================= */}
+
+            <section className="
+                portfolio-section
+                portfolio-contact-section
+            ">
+
+                <Container>
+
+                    <Row className="justify-content-center">
+
+                        <Col
+
+                            xs={12}
+
+                            lg={9}
+
+                        >
+
+                            <div className="portfolio-contact-header">
+
+                                <p className="portfolio-label">
+
+                                    CONTACTO
+
+                                </p>
+
+
+                                <h2 className="portfolio-section-title">
+
+                                    Contacto
+
+                                </h2>
+
+
+                                <p className="portfolio-section-description">
+
+                                    Completa el formulario para
+                                    enviar un mensaje.
+
+                                </p>
+
+                            </div>
+
+
+                            <div className="portfolio-contact-card">
+
+
+                                {error && (
+
+                                    <Alert variant="danger">
+
+                                        {error}
+
+                                    </Alert>
+
+                                )}
+
+
+                                {mensajeExito && (
+
+                                    <Alert variant="success">
+
+                                        {mensajeExito}
+
+                                    </Alert>
+
+                                )}
+
+
+                                <Form onSubmit={manejarEnvio}>
+
+
+                                    <Form.Group
+
+                                        className="mb-3"
+
+                                        controlId="nombre"
+
+                                    >
+
+                                        <Form.Label>
+
+                                            Nombre
+
+                                        </Form.Label>
+
+
+                                        <Form.Control
+
+                                            type="text"
+
+                                            placeholder="Ingresa tu nombre"
+
+                                            value={nombre}
+
+                                            onChange={
+                                                (evento) =>
+                                                    setNombre(
+                                                        evento.target.value
+                                                    )
+                                            }
+
+                                        />
+
+                                    </Form.Group>
+
+
+                                    <Form.Group
+
+                                        className="mb-3"
+
+                                        controlId="correo"
+
+                                    >
+
+                                        <Form.Label>
+
+                                            Correo electrónico
+
+                                        </Form.Label>
+
+
+                                        <Form.Control
+
+                                            type="email"
+
+                                            placeholder="correo@ejemplo.cl"
+
+                                            value={correo}
+
+                                            onChange={
+                                                (evento) =>
+                                                    setCorreo(
+                                                        evento.target.value
+                                                    )
+                                            }
+
+                                        />
+
+                                    </Form.Group>
+
+
+                                    <Form.Group
+
+                                        className="mb-4"
+
+                                        controlId="mensaje"
+
+                                    >
+
+                                        <Form.Label>
+
+                                            Mensaje
+
+                                        </Form.Label>
+
+
+                                        <Form.Control
+
+                                            as="textarea"
+
+                                            rows={5}
+
+                                            placeholder="Escribe tu mensaje"
+
+                                            value={mensaje}
+
+                                            onChange={
+                                                (evento) =>
+                                                    setMensaje(
+                                                        evento.target.value
+                                                    )
+                                            }
+
+                                        />
+
+                                    </Form.Group>
+
+
+                                    <Button
+
+                                        variant="primary"
+
+                                        type="submit"
+
+                                    >
+
+                                        Enviar mensaje
+
+                                    </Button>
+
+
+                                </Form>
+
+                            </div>
+
+                        </Col>
+
+                    </Row>
+
+                </Container>
+
+            </section>
+
+        </div>
+
+    );
 
 }
 
-
-/*
-============================================================
-EXPORTAR COMPONENTE
-============================================================
-*/
 
 export default Portafolio;

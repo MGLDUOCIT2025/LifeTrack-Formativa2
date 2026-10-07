@@ -1,0 +1,774 @@
+/*
+============================================================
+MI DIA PREMIUM.CSS
+============================================================
+*/
+
+
+.dia-page {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    background: #f4f8fd;
+
+    color: #0b2d61;
+
+    overflow-x: hidden;
+
+}
+
+
+.dia-container {
+
+    width: min(1400px, 92%);
+
+    margin: 0 auto;
+
+}
+
+
+
+/*
+============================================================
+HERO
+============================================================
+*/
+
+.dia-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 390px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+}
+
+
+.dia-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,255,255,0.98) 0%,
+
+            rgba(255,255,255,0.94) 30%,
+
+            rgba(255,255,255,0.80) 48%,
+
+            rgba(255,255,255,0.35) 72%,
+
+            rgba(255,255,255,0.05) 100%
+
+        );
+
+}
+
+
+.dia-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding: 65px 0;
+
+}
+
+
+.dia-label,
+.mini-label {
+
+    color: #1769ff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+.dia-hero h1 {
+
+    margin: 14px 0;
+
+    max-width: 760px;
+
+    color: #0b2d61;
+
+    font-size: clamp(48px, 5vw, 72px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+}
+
+
+.dia-hero h1 strong {
+
+    color: #1769ff;
+
+}
+
+
+.dia-hero p {
+
+    max-width: 680px;
+
+    color: #58708e;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+}
+
+
+
+/*
+============================================================
+DASHBOARD
+============================================================
+*/
+
+.dia-dashboard {
+
+    padding: 48px 0 90px;
+
+}
+
+
+.dia-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.45fr
+        0.75fr;
+
+    gap: 25px;
+
+    align-items: start;
+
+}
+
+
+
+/*
+============================================================
+CARDS
+============================================================
+*/
+
+.dia-card {
+
+    background: #ffffff;
+
+    border: 1px solid #dce6f2;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(13,44,97,0.08);
+
+}
+
+
+.dia-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 26px;
+
+}
+
+
+.dia-card-header h2 {
+
+    margin: 8px 0 0;
+
+    color: #0b2d61;
+
+    font-size: 31px;
+
+}
+
+
+.dia-card-header > strong {
+
+    margin-top: 18px;
+
+    color: #1769ff;
+
+}
+
+
+
+/*
+============================================================
+AGENDA
+============================================================
+*/
+
+.agenda-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.agenda-item {
+
+    min-height: 82px;
+
+    padding: 14px 18px;
+
+    display: grid;
+
+    grid-template-columns:
+        42px
+        62px
+        50px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #f6f8fb;
+
+    border-radius: 17px;
+
+}
+
+
+.actividad-realizada {
+
+    background: #f5fbf7;
+
+}
+
+
+.agenda-check {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 2px solid #1769ff;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: 900;
+
+}
+
+
+.agenda-check.checked {
+
+    background: #1769ff;
+
+}
+
+
+.agenda-hora {
+
+    color: #0d356e;
+
+    font-weight: 900;
+
+}
+
+
+.agenda-icono {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 12px;
+
+}
+
+
+.agenda-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.agenda-info strong {
+
+    color: #0d356e;
+
+}
+
+
+.agenda-info span {
+
+    margin-top: 3px;
+
+    color: #718098;
+
+    font-size: 13px;
+
+}
+
+
+.agenda-estado {
+
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+}
+
+
+.agenda-estado.completado {
+
+    background: #dcf6e7;
+
+    color: #11834f;
+
+}
+
+
+.agenda-estado.pendiente {
+
+    background: #fff1ce;
+
+    color: #9a6500;
+
+}
+
+
+
+/*
+============================================================
+DERECHA
+============================================================
+*/
+
+.dia-side {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+
+
+/*
+============================================================
+PROGRESO
+============================================================
+*/
+
+.progreso-layout {
+
+    margin-top: 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        145px
+        1fr;
+
+    align-items: center;
+
+    gap: 23px;
+
+}
+
+
+.circulo-progreso {
+
+    width: 136px;
+
+    height: 136px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        conic-gradient(
+
+            #1769ff 0deg,
+
+            #1769ff var(--progreso),
+
+            #e5edf7 var(--progreso),
+
+            #e5edf7 360deg
+
+        );
+
+    transition:
+        background 0.3s ease;
+
+}
+
+
+.circulo-interior {
+
+    width: 102px;
+
+    height: 102px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 50%;
+
+}
+
+
+.numero-porcentaje {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    color: #0b2d61;
+
+    white-space: nowrap;
+
+}
+
+
+.numero-porcentaje span:first-child {
+
+    font-size: 29px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+}
+
+
+.numero-porcentaje span:last-child {
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+}
+
+
+.circulo-interior small {
+
+    margin-top: 6px;
+
+    color: #74849a;
+
+    font-size: 9px;
+
+}
+
+
+.progreso-texto h3 {
+
+    margin: 0 0 8px;
+
+    color: #0b2d61;
+
+    font-size: 26px;
+
+}
+
+
+.progreso-texto p {
+
+    margin: 0;
+
+    color: #697b94;
+
+    line-height: 1.55;
+
+}
+
+
+
+/*
+============================================================
+HÁBITOS
+============================================================
+*/
+
+.habitos-card h2 {
+
+    margin: 10px 0;
+
+    color: #0b2d61;
+
+    font-size: 30px;
+
+}
+
+
+.habito-item {
+
+    margin-top: 19px;
+
+}
+
+
+.habito-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+}
+
+
+.habito-row strong {
+
+    color: #0b2d61;
+
+}
+
+
+.progress-line {
+
+    height: 8px;
+
+    margin-top: 8px;
+
+    overflow: hidden;
+
+    background: #e7edf5;
+
+    border-radius: 999px;
+
+}
+
+
+.progress-line div {
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            #0d4fa8,
+
+            #2484ff
+
+        );
+
+    transition:
+        width 0.3s ease;
+
+}
+
+
+
+/*
+============================================================
+RESUMEN
+============================================================
+*/
+
+.dia-resumen {
+
+    margin-top: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr
+        1.2fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+}
+
+
+.dia-resumen-numeros {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.dia-resumen-numeros > div {
+
+    min-height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f3f7fc;
+
+    border-radius: 16px;
+
+}
+
+
+.dia-resumen-numeros strong {
+
+    color: #1769ff;
+
+    font-size: 27px;
+
+}
+
+
+.dia-resumen-numeros span {
+
+    color: #718098;
+
+    font-size: 11px;
+
+}
+
+
+
+/*
+============================================================
+RESPONSIVE
+============================================================
+*/
+
+@media(max-width:1050px) {
+
+    .dia-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media(max-width:700px) {
+
+    .agenda-item {
+
+        grid-template-columns:
+            38px
+            55px
+            45px
+            1fr;
+
+    }
+
+
+    .agenda-estado {
+
+        grid-column: 4;
+
+    }
+
+
+    .dia-resumen {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .dia-resumen-numeros {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}

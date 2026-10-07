@@ -1,132 +1,118 @@
-import {
-  Link
-} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 function Footer() {
 
-  return (
+    return (
 
-    <footer className="footer-principal">
+        <footer className="footer-principal">
 
-      <div className="container">
+            <div className="container">
 
-        <div className="row g-4 py-5">
+                <div className="row py-5 g-4">
 
+                    <div className="col-12 col-lg-4">
 
-          {/* =============================================
-              LIFETRACK
-          ============================================= */}
+                        <h3>
+                            LifeTrack
+                        </h3>
 
-          <div className="col-lg-4">
+                        <p>
+                            Organiza tu día.
+                            Cumple tus metas.
+                        </p>
 
-            <h3>
-              ✓ LifeTrack
-            </h3>
+                        <p>
+                            Trabajo, estudios,
+                            gimnasio, boxeo y vida
+                            personal en un solo lugar.
+                        </p>
 
-            <p>
-
-              Organiza tu día,
-              administra tus actividades
-              y avanza hacia tus metas.
-
-            </p>
-
-          </div>
+                    </div>
 
 
-          {/* =============================================
-              NAVEGACIÓN
-          ============================================= */}
+                    <div className="col-6 col-lg-2">
 
-          <div className="col-lg-3">
+                        <h5>
+                            Navegación
+                        </h5>
 
-            <h5>
-              Navegación
-            </h5>
+                        <Link to="/">
+                            Inicio
+                        </Link>
 
-            <Link to="/">
-              Inicio
-            </Link>
+                        <Link to="/mi-dia">
+                            Mi Día
+                        </Link>
 
-            <Link to="/mi-dia">
-              Mi Día
-            </Link>
+                        <Link to="/tareas">
+                            Mis Tareas
+                        </Link>
 
-            <Link to="/tareas">
-              Mis Tareas
-            </Link>
+                        <Link to="/productos">
+                            Tienda
+                        </Link>
 
-            <Link to="/productos">
-              Tienda
-            </Link>
+                        <Link to="/blog">
+                            Blog
+                        </Link>
 
-          </div>
-
-
-          {/* =============================================
-              INFORMACIÓN
-          ============================================= */}
-
-          <div className="col-lg-3">
-
-            <h5>
-              Información
-            </h5>
-
-            <Link to="/blog">
-              Blog
-            </Link>
-
-            <Link to="/nosotros">
-              Nosotros
-            </Link>
-
-            <Link to="/contacto">
-              Contacto
-            </Link>
-
-          </div>
+                    </div>
 
 
-          {/* =============================================
-              PROYECTO
-          ============================================= */}
+                    <div className="col-6 col-lg-3">
 
-          <div className="col-lg-2">
+                        <h5>
+                            Información
+                        </h5>
 
-            <h5>
-              Proyecto
-            </h5>
+                        <Link to="/nosotros">
+                            Nosotros
+                        </Link>
 
-            <p>
-              Full Stack II
-            </p>
+                        <Link to="/contacto">
+                            Contacto
+                        </Link>
 
-            <p>
-              LifeTrack
-            </p>
+                        <Link to="/portafolio">
+                            Portafolio
+                        </Link>
 
-          </div>
-
-
-        </div>
-
-      </div>
+                    </div>
 
 
-      <div className="footer-final">
+                    <div className="col-12 col-lg-3">
 
-        © 2026 LifeTrack |
-        Proyecto Desarrollo Full Stack II
+                        <h5>
+                            LifeTrack
+                        </h5>
 
-      </div>
+                        <p>
+                            💼 Trabajo
+                            <br />
+                            📚 Estudios
+                            <br />
+                            🏋️ Gimnasio
+                            <br />
+                            🥊 Boxeo
+                        </p>
 
-    </footer>
+                    </div>
 
-  );
+                </div>
 
+            </div>
+
+
+            <div className="footer-final">
+
+                © 2026 LifeTrack ·
+                Organiza tu día.
+                Cumple tus metas.
+
+            </div>
+
+        </footer>
+    );
 }
-
 
 export default Footer;

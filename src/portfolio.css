@@ -1,709 +1,943 @@
 /*
-=========================================================
+============================================================
 PORTFOLIO.CSS
-Estilos exclusivos del portafolio LifeTrack
-=========================================================
+LifeTrack
+Evaluación Formativa N°2
+============================================================
 */
 
 
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-:root {
-
-  --portfolio-blue: #0b356e;
-
-  --portfolio-blue-light: #1478ff;
-
-  --portfolio-background: #f2f6fc;
-
-  --portfolio-white: #ffffff;
-
-  --portfolio-text: #12233f;
-
-  --portfolio-muted: #60718a;
-
-}
-
-
-/* =====================================================
-   PÁGINA
-===================================================== */
-
 .portfolio-page {
 
-  background:
-    var(--portfolio-background);
+    min-height: 100vh;
 
-  color:
-    var(--portfolio-text);
+    color: #0b2d61;
+
+    background: #f5f8fc;
 
 }
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/*
+============================================================
+HERO CON FONDO LIFETRACK
+============================================================
+*/
 
 .portfolio-hero {
 
-  min-height: 650px;
+    position: relative;
 
-  display: flex;
+    min-height: 630px;
 
-  align-items: center;
+    display: flex;
 
-  background:
-    linear-gradient(
-      135deg,
-      #f7faff 0%,
-      #edf5ff 100%
-    );
+    align-items: center;
 
-}
+    overflow: hidden;
 
 
-.min-vh-75 {
+    background-image:
 
-  min-height: 650px;
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.97) 0%,
+            rgba(255,255,255,0.91) 37%,
+            rgba(237,246,255,0.74) 60%,
+            rgba(220,236,255,0.56) 100%
+        ),
 
-}
+        url("./assets/lifetrack/hero-montanas.png");
 
 
-.portfolio-eyebrow {
+    background-size: cover;
 
-  color:
-    var(--portfolio-blue);
+    background-position: center;
 
-  font-weight: 700;
-
-  letter-spacing: 2px;
-
-  font-size: 0.9rem;
-
-  text-transform: uppercase;
-
-  margin-bottom: 20px;
+    background-repeat: no-repeat;
 
 }
 
 
-.portfolio-hero h1 {
+/*
+============================================================
+EFECTO SUPERIOR DERECHO
+============================================================
+*/
 
-  font-size: 3rem;
+.portfolio-hero::before {
 
-  font-weight: 800;
+    content: "";
 
-  color:
-    var(--portfolio-blue);
+    position: absolute;
 
-  margin-bottom: 20px;
+    width: 600px;
+
+    height: 600px;
+
+    right: -220px;
+
+    top: -310px;
+
+    border-radius: 50%;
+
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(23,105,255,0.24),
+            rgba(23,105,255,0.03) 70%
+        );
+
+
+    pointer-events: none;
 
 }
 
 
-.portfolio-hero h1 span {
+/*
+============================================================
+EFECTO ABAJO IZQUIERDA
+============================================================
+*/
 
-  color:
-    var(--portfolio-blue-light);
+.portfolio-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+
+    height: 400px;
+
+    left: -180px;
+
+    bottom: -250px;
+
+
+    border-radius: 50%;
+
+
+    background:
+        rgba(
+            61,
+            184,
+            255,
+            0.14
+        );
+
+
+    pointer-events: none;
+
+}
+
+
+/*
+============================================================
+CONTENIDO
+============================================================
+*/
+
+.portfolio-hero .container {
+
+    position: relative;
+
+    z-index: 5;
 
 }
 
 
 .portfolio-intro {
 
-  color:
-    var(--portfolio-muted);
-
-  font-size: 1.1rem;
-
-  line-height: 1.8;
-
-  max-width: 650px;
-
-  margin-bottom: 30px;
+    max-width: 730px;
 
 }
 
 
-/* =====================================================
-   FOTO
-===================================================== */
+/*
+============================================================
+LABEL
+============================================================
+*/
+
+.portfolio-label {
+
+    margin-bottom: 15px;
+
+
+    color: #1769ff;
+
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+/*
+============================================================
+TÍTULO
+============================================================
+*/
+
+.portfolio-title {
+
+    margin: 0;
+
+
+    color: #0b2d61;
+
+
+    font-size:
+        clamp(
+            52px,
+            5vw,
+            76px
+        );
+
+
+    line-height: 0.98;
+
+
+    font-weight: 900;
+
+}
+
+
+.portfolio-title span {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #1769ff;
+
+}
+
+
+/*
+============================================================
+DESCRIPCIÓN
+============================================================
+*/
+
+.portfolio-description {
+
+    max-width: 700px;
+
+    margin:
+
+        28px 0
+        32px;
+
+
+    color: #4f6887;
+
+
+    font-size: 17px;
+
+    line-height: 1.75;
+
+}
+
+
+/*
+============================================================
+BOTÓN
+============================================================
+*/
+
+.portfolio-intro .btn-primary {
+
+    min-height: 56px;
+
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+
+    padding:
+
+        0
+        30px;
+
+
+    border: none;
+
+
+    border-radius: 999px;
+
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d4fa8,
+            #1769ff
+        );
+
+
+    font-weight: 900;
+
+
+    box-shadow:
+        0 16px 34px
+        rgba(23,105,255,0.30);
+
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.portfolio-intro .btn-primary:hover {
+
+    transform:
+        translateY(-3px);
+
+
+    box-shadow:
+        0 20px 38px
+        rgba(23,105,255,0.34);
+
+}
+
+
+/*
+============================================================
+PERFIL MARIO
+============================================================
+*/
+
+.portfolio-profile {
+
+    position: relative;
+
+
+    width: 100%;
+
+    max-width: 390px;
+
+
+    margin: auto;
+
+
+    padding:
+
+        42px
+        32px;
+
+
+    text-align: center;
+
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.87
+        );
+
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
+
+
+    border-radius: 30px;
+
+
+    box-shadow:
+        0 28px 65px
+        rgba(13,44,97,0.20);
+
+
+    backdrop-filter:
+        blur(13px);
+
+}
+
+
+/*
+============================================================
+DETALLE AZUL TARJETA
+============================================================
+*/
+
+.portfolio-profile::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 20%;
+
+
+    width: 60%;
+
+    height: 5px;
+
+
+    border-radius:
+        0 0
+        999px 999px;
+
+
+    background:
+        linear-gradient(
+            90deg,
+            #0d4fa8,
+            #38aaff
+        );
+
+}
+
+
+/*
+============================================================
+FOTO
+============================================================
+*/
 
 .portfolio-photo {
 
-  width: 190px;
+    display: block;
 
-  height: 190px;
 
-  object-fit: cover;
+    width: 190px !important;
 
-  object-position: center;
+    height: 190px !important;
 
-  border-radius: 50%;
 
-  border:
-    7px solid white;
+    margin:
 
-  box-shadow:
-    0 15px 35px
-    rgba(0, 0, 0, 0.18);
+        0 auto
+        24px;
 
-  margin-bottom: 20px;
+
+    object-fit: cover !important;
+
+    object-position: center !important;
+
+
+    border-radius: 50% !important;
+
+
+    border:
+        6px solid
+        #ffffff;
+
+
+    box-shadow:
+        0 17px 40px
+        rgba(13,44,97,0.25);
 
 }
 
 
+/*
+============================================================
+NOMBRE
+============================================================
+*/
+
 .portfolio-name {
 
-  font-weight: 700;
+    margin:
 
-  color:
-    var(--portfolio-blue);
+        0 0
+        7px;
 
-  margin-bottom: 5px;
+
+    color: #0b2d61;
+
+
+    font-size: 30px;
+
+    font-weight: 900;
 
 }
 
 
 .portfolio-career {
 
-  color:
-    var(--portfolio-muted);
+    margin: 0;
+
+
+    color: #647b99;
 
 }
 
 
-/* =====================================================
-   SECCIONES
-===================================================== */
+/*
+============================================================
+SECCIONES
+============================================================
+*/
 
 .portfolio-section {
 
-  padding:
-    90px 0;
+    position: relative;
+
+
+    padding:
+
+        88px 0;
+
+
+    background: #ffffff;
+
+}
+
+
+.portfolio-section:nth-of-type(even) {
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbff,
+            #eef5ff
+        );
+
+}
+
+
+/*
+============================================================
+CABECERA SECCIONES
+============================================================
+*/
+
+.portfolio-section-header {
+
+    margin-bottom: 36px;
 
 }
 
 
 .portfolio-section-title {
 
-  color:
-    var(--portfolio-blue);
+    margin:
 
-  font-size:
-    2.3rem;
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    30px;
-
-}
+        8px 0
+        13px;
 
 
-.portfolio-heading-center {
-
-  text-align:
-    center;
-
-  margin-bottom:
-    50px;
-
-}
+    color: #0b2d61;
 
 
-.portfolio-heading-center
-.portfolio-section-title {
+    font-size:
+        clamp(
+            34px,
+            4vw,
+            50px
+        );
 
-  margin-bottom:
-    15px;
+
+    font-weight: 900;
 
 }
 
 
 .portfolio-section-description {
 
-  color:
-    var(--portfolio-muted);
+    max-width: 760px;
 
-  max-width:
-    650px;
 
-  margin:
-    0 auto;
+    color: #657a95;
 
-  line-height:
-    1.8;
+
+    font-size: 16px;
+
+    line-height: 1.75;
 
 }
 
 
-/* =====================================================
-   SOBRE MÍ
-===================================================== */
-
-.portfolio-about-card {
-
-  border:
-    none;
-
-  border-radius:
-    20px;
-
-  padding:
-    25px;
-
-  box-shadow:
-    0 15px 40px
-    rgba(22, 47, 85, 0.1);
-
-}
-
-
-.portfolio-about-card h3 {
-
-  color:
-    var(--portfolio-blue);
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    20px;
-
-}
-
-
-.portfolio-about-card p {
-
-  color:
-    var(--portfolio-muted);
-
-  line-height:
-    1.8;
-
-}
-
-
-.portfolio-about-role {
-
-  color:
-    var(--portfolio-blue-light)
-    !important;
-
-  font-weight:
-    600;
-
-}
-
-
-.portfolio-skills {
-
-  background:
-    #eff5ff;
-
-  padding:
-    30px;
-
-  border-radius:
-    18px;
-
-}
-
-
-.portfolio-skills h4 {
-
-  color:
-    var(--portfolio-blue);
-
-  font-weight:
-    700;
-
-  margin-bottom:
-    20px;
-
-}
-
-
-.portfolio-badges {
-
-  display:
-    flex;
-
-  flex-wrap:
-    wrap;
-
-  gap:
-    10px;
-
-}
-
-
-.portfolio-badges
-.badge {
-
-  font-size:
-    0.9rem;
-
-  padding:
-    10px 14px;
-
-}
-
-
-/* =====================================================
-   PROYECTOS
-===================================================== */
+/*
+============================================================
+PROYECTOS
+============================================================
+*/
 
 .portfolio-projects-section {
 
-  background:
-    #eaf2ff;
+    background:
+        linear-gradient(
+            180deg,
+            #f1f7ff,
+            #ffffff
+        );
 
 }
 
 
-.portfolio-project-card {
+/*
+============================================================
+CARDS BOOTSTRAP
+============================================================
+*/
 
-  border:
-    none;
+.portfolio-page .card {
 
-  border-radius:
-    18px;
-
-  overflow:
-    hidden;
-
-  box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.1);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-
-}
+    overflow: hidden;
 
 
-.portfolio-project-card:hover {
-
-  transform:
-    translateY(-8px);
-
-  box-shadow:
-    0 20px 40px
-    rgba(0, 0, 0, 0.15);
-
-}
+    border:
+        1px solid
+        #dce5ef;
 
 
-.portfolio-project-image {
+    border-radius: 22px;
 
-  height:
-    240px;
 
-  object-fit:
-    cover;
+    box-shadow:
+        0 15px 36px
+        rgba(
+            13,
+            44,
+            97,
+            0.08
+        );
+
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
 }
 
 
-.portfolio-project-card
-.card-body {
+.portfolio-page .card:hover {
 
-  padding:
-    25px;
-
-}
+    transform:
+        translateY(-5px);
 
 
-.portfolio-project-card
-.card-title {
-
-  color:
-    var(--portfolio-blue);
-
-  font-size:
-    1.4rem;
-
-  font-weight:
-    700;
+    box-shadow:
+        0 22px 45px
+        rgba(
+            13,
+            44,
+            97,
+            0.13
+        );
 
 }
 
 
-.portfolio-project-card
-.card-text {
+/*
+============================================================
+NOTICIAS
+============================================================
+*/
 
-  color:
-    var(--portfolio-muted);
+.portfolio-news-category {
 
-  line-height:
-    1.7;
-
-}
-
-
-.portfolio-project-tech {
-
-  color:
-    var(--portfolio-muted);
-
-  margin-bottom:
-    20px;
+    margin-top: 46px;
 
 }
 
 
-.portfolio-project-tech
-strong {
+.portfolio-news-category-title {
 
-  color:
-    var(--portfolio-text);
-
-}
+    margin-bottom: 22px;
 
 
-/* =====================================================
-   NOTICIAS
-===================================================== */
+    color: #0b2d61;
 
-.portfolio-news-section {
 
-  background:
-    white;
+    font-size: 27px;
+
+    font-weight: 900;
 
 }
 
 
-.portfolio-news-group {
-
-  margin-bottom:
-    50px;
-
-}
-
-
-.portfolio-news-group h3 {
-
-  color:
-    var(--portfolio-blue);
-
-  margin-bottom:
-    25px;
-
-}
-
-
-.portfolio-news-card {
-
-  border:
-    none;
-
-  border-radius:
-    16px;
-
-  box-shadow:
-    0 8px 25px
-    rgba(0, 0, 0, 0.08);
-
-}
-
-
-.portfolio-news-card
-.card-body {
-
-  padding:
-    25px;
-
-}
-
-
-.portfolio-news-top {
-
-  margin-bottom:
-    18px;
-
-}
-
-
-.portfolio-news-card
-.card-title {
-
-  color:
-    var(--portfolio-blue);
-
-  font-weight:
-    700;
-
-}
-
-
-.portfolio-news-date {
-
-  color:
-    #8a96a8;
-
-  font-size:
-    0.9rem;
-
-}
-
-
-.portfolio-news-card
-.card-text {
-
-  color:
-    var(--portfolio-muted);
-
-  line-height:
-    1.7;
-
-}
-
-
-/* =====================================================
-   CONTACTO
-===================================================== */
+/*
+============================================================
+CONTACTO PORTAFOLIO
+============================================================
+*/
 
 .portfolio-contact-section {
 
-  background:
-    linear-gradient(
-      135deg,
-      #edf4ff,
-      #e4efff
-    );
+    background-image:
+
+        linear-gradient(
+            90deg,
+            rgba(239,247,255,0.96),
+            rgba(255,255,255,0.90)
+        ),
+
+        url("./assets/lifetrack/hero-montanas.png");
+
+
+    background-size: cover;
+
+    background-position: center;
 
 }
 
+
+/*
+============================================================
+FORMULARIO
+============================================================
+*/
 
 .portfolio-contact-card {
 
-  background:
-    white;
+    padding: 35px;
 
-  padding:
-    40px;
 
-  border-radius:
-    20px;
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
 
-  box-shadow:
-    0 15px 40px
-    rgba(0, 0, 0, 0.1);
+
+    border:
+        1px solid
+        #dce6f2;
+
+
+    border-radius: 25px;
+
+
+    box-shadow:
+        0 18px 48px
+        rgba(
+            13,
+            44,
+            97,
+            0.10
+        );
+
+
+    backdrop-filter:
+        blur(8px);
 
 }
 
 
-.portfolio-contact-card
-.form-control {
+.portfolio-contact-card .form-label {
 
-  min-height:
-    48px;
+    color: #0b2d61;
 
-}
-
-
-.portfolio-contact-card
-textarea.form-control {
-
-  min-height:
-    140px;
+    font-weight: 800;
 
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+.portfolio-contact-card .form-control {
 
-@media screen and
-(max-width: 991px) {
+    min-height: 49px;
 
-  .portfolio-hero {
+
+    border:
+        1px solid
+        #d3dfec;
+
+
+    border-radius: 11px;
+
 
     padding:
-      80px 0;
 
-  }
-
-
-  .min-vh-75 {
-
-    min-height:
-      auto;
-
-  }
-
-
-  .portfolio-hero h1 {
-
-    font-size:
-      2.4rem;
-
-  }
-
-
-  .portfolio-photo {
-
-    width:
-      160px;
-
-    height:
-      160px;
-
-  }
+        11px
+        14px;
 
 }
 
 
-@media screen and
-(max-width: 576px) {
+.portfolio-contact-card textarea.form-control {
 
-  .portfolio-hero h1 {
+    min-height: 140px;
 
-    font-size:
-      2rem;
+    resize: vertical;
 
-  }
+}
 
 
-  .portfolio-section {
+/*
+============================================================
+BOTÓN FORMULARIO
+============================================================
+*/
+
+.portfolio-contact-card .btn-primary {
+
+    min-height: 48px;
+
 
     padding:
-      60px 0;
 
-  }
-
-
-  .portfolio-section-title {
-
-    font-size:
-      1.9rem;
-
-  }
+        0
+        25px;
 
 
-  .portfolio-contact-card {
-
-    padding:
-      25px 18px;
-
-  }
+    border: none;
 
 
-  .portfolio-photo {
+    border-radius: 999px;
 
-    width:
-      145px;
 
-    height:
-      145px;
+    background:
+        linear-gradient(
+            135deg,
+            #0d4fa8,
+            #1769ff
+        );
 
-  }
+
+    font-weight: 900;
+
+}
+
+
+/*
+============================================================
+RESPONSIVE TABLET
+============================================================
+*/
+
+@media(max-width:992px) {
+
+    .portfolio-hero {
+
+        min-height: auto;
+
+
+        padding:
+
+            75px 0;
+
+
+        background-position:
+            60% center;
+
+    }
+
+
+    .portfolio-intro {
+
+        margin: auto;
+
+        text-align: center;
+
+    }
+
+
+    .portfolio-description {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .portfolio-profile {
+
+        margin-top: 45px;
+
+    }
+
+}
+
+
+/*
+============================================================
+RESPONSIVE CELULAR
+============================================================
+*/
+
+@media(max-width:600px) {
+
+    .portfolio-hero {
+
+        padding:
+
+            55px 12px;
+
+    }
+
+
+    .portfolio-title {
+
+        font-size: 45px;
+
+    }
+
+
+    .portfolio-description {
+
+        font-size: 15px;
+
+    }
+
+
+    .portfolio-profile {
+
+        max-width: 310px;
+
+        padding:
+
+            30px
+            20px;
+
+    }
+
+
+    .portfolio-photo {
+
+        width: 150px !important;
+
+        height: 150px !important;
+
+    }
+
+
+    .portfolio-name {
+
+        font-size: 25px;
+
+    }
+
+
+    .portfolio-section {
+
+        padding:
+
+            60px 0;
+
+    }
+
+
+    .portfolio-contact-card {
+
+        padding: 24px;
+
+    }
 
 }

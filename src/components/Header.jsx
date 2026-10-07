@@ -1,105 +1,63 @@
 /*
 ============================================================
 HEADER.JSX
-Encabezado principal de LifeTrack
+LifeTrack
+============================================================
+
+Header principal de LifeTrack.
+
+Incluye:
+- Logo
+- Navegación
+- Carrito
+- Iniciar sesión
+- Comenzar gratis
+
 ============================================================
 */
 
-import {
-    Link,
-    NavLink,
-    useNavigate
-} from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-import {
-    useAuth
-} from "../context/AuthContext";
-
-import {
-    useCart
-} from "../context/CartContext";
+import "./HeaderPremium.css";
 
 
 function Header() {
 
-    /*
-    ============================================================
-    DATOS DE SESIÓN
-    ============================================================
-    */
-
-    const {
-        usuario,
-        logout
-    } = useAuth();
-
-
-    /*
-    ============================================================
-    DATOS DEL CARRITO
-    ============================================================
-    */
-
-    const {
-        cantidadTotal
-    } = useCart();
-
-
-    /*
-    ============================================================
-    NAVEGACIÓN
-    ============================================================
-    */
-
-    const navigate = useNavigate();
-
-
-    /*
-    ============================================================
-    CERRAR SESIÓN
-    ============================================================
-    */
-
-    function cerrarSesion() {
-
-        logout();
-
-        navigate("/");
-
-    }
-
-
     return (
 
-        <header className="header-principal">
+        <header className="lifetrack-header">
 
-            <div className="contenedor-header">
+            <div className="lifetrack-header-container">
 
 
-                {/* ==================================================
+                {/* =================================================
                     LOGO
-                ================================================== */}
+                ================================================= */}
 
                 <Link
                     to="/"
-                    className="logo-lifetrack"
+                    className="lifetrack-logo"
                 >
 
-                    <div className="logo-circulo">
+                    <div className="lifetrack-logo-icon">
 
                         ✓
 
                     </div>
 
 
-                    <div>
+                    <div className="lifetrack-logo-text">
 
-                        <h2>
+                        <strong>
+
                             LifeTrack
-                        </h2>
+
+                        </strong>
 
                         <span>
+
                             Organiza tu día. Cumple tus metas.
+
                         </span>
 
                     </div>
@@ -107,201 +65,204 @@ function Header() {
                 </Link>
 
 
-
-                {/* ==================================================
+                {/* =================================================
                     MENÚ PRINCIPAL
-                ================================================== */}
+                ================================================= */}
 
-                <nav className="menu-principal">
+                <nav className="lifetrack-nav">
 
 
-                    <NavLink to="/">
+                    <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Inicio
 
                     </NavLink>
 
 
-                    <NavLink to="/mi-dia">
+                    <NavLink
+                        to="/mi-dia"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Mi Día
 
                     </NavLink>
 
 
-                    <NavLink to="/tareas">
+                    <NavLink
+                        to="/tareas"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Mis Tareas
 
                     </NavLink>
 
 
-                    <NavLink to="/productos">
+                    <NavLink
+                        to="/productos"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Tienda
 
                     </NavLink>
 
 
-                    <NavLink to="/blog">
+                    <NavLink
+                        to="/blog"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Blog
 
                     </NavLink>
 
 
-                    <NavLink to="/nosotros">
+                    <NavLink
+                        to="/nosotros"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Nosotros
 
                     </NavLink>
 
 
-                    <NavLink to="/contacto">
+                    <NavLink
+                        to="/contacto"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
+                    >
 
                         Contacto
 
                     </NavLink>
 
 
-
-                    {/* ==================================================
-                        BOTÓN PORTAFOLIO
-                        Evaluación Formativa N°2
-                    ================================================== */}
-
-                    <Link
+                    <NavLink
                         to="/portafolio"
-                        className="boton-portafolio-menu"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "lifetrack-nav-link active"
+                                : "lifetrack-nav-link"
+                        }
                     >
 
-                        💼 Portafolio
+                        <span className="portfolio-icon">
 
-                    </Link>
+                            💼
+
+                        </span>
+
+                        Portafolio
+
+                    </NavLink>
 
 
                 </nav>
 
 
+                {/* =================================================
+                    ACCIONES DERECHA
+                ================================================= */}
 
-                {/* ==================================================
-                    ACCIONES DEL HEADER
-                ================================================== */}
-
-                <div className="acciones-header">
+                <div className="lifetrack-header-actions">
 
 
-                    {/* CARRITO */}
+                    {/* =============================================
+                        CARRITO
+                    ============================================= */}
 
                     <Link
-                        to="/carrito"
-                        className="icono-carrito"
+                        to="/productos"
+                        className="header-cart-button"
+                        aria-label="Ir a la tienda"
+                        title="Tienda LifeTrack"
                     >
 
                         🛒
 
+                    </Link>
 
-                        {
-                            cantidadTotal > 0 && (
 
-                                <span className="contador-carrito">
+                    {/* =============================================
+                        INICIAR SESIÓN
+                    ============================================= */}
 
-                                    {cantidadTotal}
+                    <Link
+                        to="/login"
+                        className="header-login-button"
+                    >
 
-                                </span>
+                        <span className="header-login-icon">
 
-                            )
-                        }
+                            👤
+
+                        </span>
+
+                        <span>
+
+                            Iniciar sesión
+
+                        </span>
 
                     </Link>
 
 
+                    {/* =============================================
+                        COMENZAR GRATIS
+                    ============================================= */}
 
-                    {/* ==================================================
-                        USUARIO SIN SESIÓN
-                    ================================================== */}
+                    <Link
+                        to="/registro"
+                        className="header-start-button"
+                    >
 
-                    {
-                        !usuario && (
+                        <span>
 
-                            <>
+                            Comenzar gratis
 
-                                <Link
-                                    to="/login"
-                                    className="btn btn-outline-primary"
-                                >
+                        </span>
 
-                                    Iniciar sesión
+                        <span className="header-arrow">
 
-                                </Link>
+                            →
 
+                        </span>
 
-                                <Link
-                                    to="/registro"
-                                    className="btn btn-primary"
-                                >
-
-                                    Registrarse
-
-                                </Link>
-
-                            </>
-
-                        )
-                    }
-
-
-
-                    {/* ==================================================
-                        USUARIO CON SESIÓN
-                    ================================================== */}
-
-                    {
-                        usuario && (
-
-                            <>
-
-                                <span className="usuario-header">
-
-                                    👤 Hola, {usuario.nombre}
-
-                                </span>
-
-
-                                {/* ADMINISTRADOR */}
-
-                                {
-                                    usuario.rol === "admin" && (
-
-                                        <Link
-                                            to="/admin"
-                                            className="btn btn-outline-primary"
-                                        >
-
-                                            Administrar
-
-                                        </Link>
-
-                                    )
-                                }
-
-
-                                {/* CERRAR SESIÓN */}
-
-                                <button
-                                    type="button"
-                                    className="btn btn-danger"
-                                    onClick={cerrarSesion}
-                                >
-
-                                    Cerrar sesión
-
-                                </button>
-
-                            </>
-
-                        )
-                    }
+                    </Link>
 
 
                 </div>

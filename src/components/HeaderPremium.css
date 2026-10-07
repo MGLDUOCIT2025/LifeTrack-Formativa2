@@ -1,0 +1,825 @@
+/*
+============================================================
+HEADER PREMIUM
+LifeTrack
+============================================================
+*/
+
+
+/*
+============================================================
+HEADER GENERAL
+============================================================
+*/
+
+.lifetrack-header {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 86px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.97
+        );
+
+    border-bottom:
+        1px solid
+        #e4ebf4;
+
+    z-index: 100;
+
+}
+
+
+/*
+============================================================
+CONTENEDOR
+============================================================
+*/
+
+.lifetrack-header-container {
+
+    width:
+        min(
+            1460px,
+            calc(100% - 40px)
+        );
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 28px;
+
+}
+
+
+/*
+============================================================
+LOGO
+============================================================
+*/
+
+.lifetrack-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-shrink: 0;
+
+    color: #0b2d61;
+
+    text-decoration: none;
+
+}
+
+
+/*
+============================================================
+CÍRCULO LOGO
+============================================================
+*/
+
+.lifetrack-logo-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #092a5e,
+            #0f407e
+        );
+
+    color: #ffffff;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            11,
+            45,
+            97,
+            0.16
+        );
+
+}
+
+
+/*
+============================================================
+TEXTO LOGO
+============================================================
+*/
+
+.lifetrack-logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.lifetrack-logo-text strong {
+
+    color: #0b2d61;
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+}
+
+
+.lifetrack-logo-text span {
+
+    margin-top: 5px;
+
+    color: #61758f;
+
+    font-size: 11px;
+
+}
+
+
+/*
+============================================================
+NAVEGACIÓN
+============================================================
+*/
+
+.lifetrack-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex: 1;
+
+}
+
+
+/*
+============================================================
+LINKS
+============================================================
+*/
+
+.lifetrack-nav-link {
+
+    position: relative;
+
+    min-height: 86px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.lifetrack-nav-link:hover {
+
+    color: #1769ff;
+
+}
+
+
+/*
+============================================================
+LINK ACTIVO
+============================================================
+*/
+
+.lifetrack-nav-link.active {
+
+    color: #1769ff;
+
+}
+
+
+.lifetrack-nav-link.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 16px;
+
+    height: 3px;
+
+    border-radius: 999px;
+
+    background: #1769ff;
+
+}
+
+
+/*
+============================================================
+ICONO PORTAFOLIO
+============================================================
+*/
+
+.portfolio-icon {
+
+    font-size: 13px;
+
+}
+
+
+/*
+============================================================
+ACCIONES
+============================================================
+*/
+
+.lifetrack-header-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+
+}
+
+
+/*
+============================================================
+CARRITO
+============================================================
+*/
+
+.header-cart-button {
+
+    width: 47px;
+
+    height: 47px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border:
+        1px solid
+        #dce6f2;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f2f7ff
+        );
+
+    color: #0b2d61;
+
+    text-decoration: none;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 7px 18px
+        rgba(
+            13,
+            44,
+            97,
+            0.08
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.header-cart-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    border-color:
+        #b8d0f0;
+
+    box-shadow:
+        0 12px 24px
+        rgba(
+            13,
+            44,
+            97,
+            0.13
+        );
+
+}
+
+
+/*
+============================================================
+INICIAR SESIÓN
+============================================================
+*/
+
+.header-login-button {
+
+    min-height: 47px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        0 18px;
+
+    border:
+        1px solid
+        #cddcef;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: #0d57bd;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 6px 16px
+        rgba(
+            13,
+            44,
+            97,
+            0.06
+        );
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.header-login-button:hover {
+
+    color: #0d57bd;
+
+    background: #f5f9ff;
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 22px
+        rgba(
+            13,
+            44,
+            97,
+            0.11
+        );
+
+}
+
+
+/*
+============================================================
+ICONO LOGIN
+============================================================
+*/
+
+.header-login-icon {
+
+    font-size: 15px;
+
+}
+
+
+/*
+============================================================
+COMENZAR GRATIS
+============================================================
+*/
+
+.header-start-button {
+
+    min-height: 47px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding:
+        0 21px;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d55ba,
+            #176fe5
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 10px 23px
+        rgba(
+            23,
+            105,
+            255,
+            0.22
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+}
+
+
+.header-start-button:hover {
+
+    color: #ffffff;
+
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.04);
+
+    box-shadow:
+        0 14px 30px
+        rgba(
+            23,
+            105,
+            255,
+            0.30
+        );
+
+}
+
+
+/*
+============================================================
+FLECHA
+============================================================
+*/
+
+.header-arrow {
+
+    font-size: 17px;
+
+    transition:
+        transform 0.2s ease;
+
+}
+
+
+.header-start-button:hover
+.header-arrow {
+
+    transform:
+        translateX(3px);
+
+}
+
+
+/*
+============================================================
+TABLET
+============================================================
+*/
+
+@media (max-width: 1250px) {
+
+    .lifetrack-header-container {
+
+        width:
+            calc(
+                100% - 24px
+            );
+
+        gap: 15px;
+
+    }
+
+
+    .lifetrack-nav {
+
+        gap: 15px;
+
+    }
+
+
+    .lifetrack-nav-link {
+
+        font-size: 13px;
+
+    }
+
+
+    .header-login-button {
+
+        padding:
+            0 14px;
+
+    }
+
+
+    .header-start-button {
+
+        padding:
+            0 15px;
+
+    }
+
+}
+
+
+/*
+============================================================
+PANTALLAS MÁS PEQUEÑAS
+============================================================
+*/
+
+@media (max-width: 1050px) {
+
+    .lifetrack-logo-text span {
+
+        display: none;
+
+    }
+
+
+    .lifetrack-logo-text strong {
+
+        font-size: 23px;
+
+    }
+
+
+    .lifetrack-logo-icon {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 28px;
+
+    }
+
+
+    .lifetrack-nav {
+
+        gap: 11px;
+
+    }
+
+
+    .lifetrack-nav-link {
+
+        font-size: 12px;
+
+    }
+
+
+    .header-login-icon {
+
+        display: none;
+
+    }
+
+}
+
+
+/*
+============================================================
+MÓVIL
+============================================================
+*/
+
+@media (max-width: 850px) {
+
+    .lifetrack-header {
+
+        min-height: auto;
+
+    }
+
+
+    .lifetrack-header-container {
+
+        padding:
+            12px 0;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .lifetrack-logo {
+
+        order: 1;
+
+    }
+
+
+    .lifetrack-header-actions {
+
+        order: 2;
+
+        margin-left: auto;
+
+    }
+
+
+    .lifetrack-nav {
+
+        order: 3;
+
+        width: 100%;
+
+        flex-basis: 100%;
+
+        overflow-x: auto;
+
+        justify-content: flex-start;
+
+        padding-top: 5px;
+
+    }
+
+
+    .lifetrack-nav-link {
+
+        min-height: 42px;
+
+    }
+
+
+    .lifetrack-nav-link.active::after {
+
+        bottom: 0;
+
+    }
+
+}
+
+
+/*
+============================================================
+MÓVIL PEQUEÑO
+============================================================
+*/
+
+@media (max-width: 600px) {
+
+    .header-login-button {
+
+        width: 45px;
+
+        min-width: 45px;
+
+        height: 45px;
+
+        min-height: 45px;
+
+        padding: 0;
+
+        border-radius: 13px;
+
+    }
+
+
+    .header-login-button span:last-child {
+
+        display: none;
+
+    }
+
+
+    .header-login-icon {
+
+        display: inline;
+
+        font-size: 17px;
+
+    }
+
+
+    .header-start-button {
+
+        min-height: 45px;
+
+        padding:
+            0 14px;
+
+        font-size: 12px;
+
+    }
+
+
+    .header-cart-button {
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 21px;
+
+    }
+
+}

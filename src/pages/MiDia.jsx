@@ -1,229 +1,583 @@
+/*
+============================================================
+MI DIA.JSX
+LifeTrack
+
+OBJETIVO:
+- Marcar actividades realizadas.
+- Calcular automáticamente el porcentaje.
+- 0 de 4 = 0%
+- 1 de 4 = 25%
+- 2 de 4 = 50%
+- 3 de 4 = 75%
+- 4 de 4 = 100%
+============================================================
+*/
+
+import { useState } from "react";
+
+import "./MiDiaPremium.css";
+
+import heroMontanas from "../assets/lifetrack/hero-montanas.png";
+
+
 function MiDia() {
 
-  const actividades = [
+    /*
+    ============================================================
+    ESTADO ÚNICO DE ACTIVIDADES
 
-    {
-      hora: "08:00",
-      icono: "🚗",
-      titulo: "Traslado",
-      descripcion: "Ir al trabajo",
-      estado: "Pendiente"
-    },
+    IMPORTANTE:
+    Todo el porcentaje se calcula desde este mismo arreglo.
+    No existe ningún porcentaje escrito manualmente.
+    ============================================================
+    */
 
-    {
-      hora: "09:00",
-      icono: "💼",
-      titulo: "Trabajo",
-      descripcion: "Jornada laboral",
-      estado: "En curso"
-    },
-
-    {
-      hora: "18:00",
-      icono: "✅",
-      titulo: "Salida trabajo",
-      descripcion: "Fin de jornada",
-      estado: "Pendiente"
-    },
-
-    {
-      hora: "19:00",
-      icono: "📚",
-      titulo: "Universidad",
-      descripcion: "Clases",
-      estado: "Pendiente"
-    },
-
-    {
-      hora: "22:30",
-      icono: "🏁",
-      titulo: "Fin de clases",
-      descripcion: "Día completado",
-      estado: "Pendiente"
-    }
-
-  ];
-
-
-  return (
-
-    <section className="pagina-mi-dia">
-
-      <div className="container">
-
-        <div className="cabecera-pagina">
-
-          <span>
-            TU ORGANIZACIÓN
-          </span>
-
-          <h1>
-            📅 Mi Día
-          </h1>
-
-          <p>
-            Organiza tus actividades y mantén
-            el control de tu rutina diaria.
-          </p>
-
-        </div>
+    const [actividades, setActividades] = useState([
+        {
+            id: 1,
+            hora: "07:00",
+            icono: "🏋️",
+            titulo: "Gimnasio",
+            detalle: "Entrenamiento de fuerza",
+            realizado: true,
+        },
+        {
+            id: 2,
+            hora: "09:00",
+            icono: "💼",
+            titulo: "Trabajo",
+            detalle: "Jornada laboral",
+            realizado: true,
+        },
+        {
+            id: 3,
+            hora: "19:00",
+            icono: "📚",
+            titulo: "Estudios",
+            detalle: "Ingeniería en Informática",
+            realizado: false,
+        },
+        {
+            id: 4,
+            hora: "21:30",
+            icono: "🥊",
+            titulo: "Boxeo",
+            detalle: "Entrenamiento",
+            realizado: false,
+        },
+    ]);
 
 
-        <div className="panel-dia">
+    /*
+    ============================================================
+    MARCAR / DESMARCAR
+    ============================================================
+    */
+
+    const cambiarEstado = (id) => {
+
+        setActividades((estadoActual) =>
+
+            estadoActual.map((actividad) =>
+
+                actividad.id === id
+                    ? {
+                        ...actividad,
+                        realizado: !actividad.realizado,
+                    }
+                    : actividad
+
+            )
+
+        );
+
+    };
 
 
-          <div className="agenda-dia">
+    /*
+    ============================================================
+    CÁLCULOS
+    ============================================================
+    */
 
-            {
-              actividades.map(
-                (actividad, index) => (
-
-                  <div
-                    className="actividad-dia"
-                    key={index}
-                  >
-
-                    <strong className="hora-dia">
-
-                      {actividad.hora}
-
-                    </strong>
+    const totalActividades =
+        actividades.length;
 
 
-                    <div className="icono-dia">
-
-                      {actividad.icono}
-
-                    </div>
-
-
-                    <div className="info-dia">
-
-                      <strong>
-                        {actividad.titulo}
-                      </strong>
-
-                      <span>
-                        {actividad.descripcion}
-                      </span>
-
-                    </div>
+    const actividadesCompletadas =
+        actividades.filter(
+            (actividad) => actividad.realizado
+        ).length;
 
 
-                    <span
-                      className={
-                        actividad.estado ===
-                        "En curso"
-                          ? "estado estado-curso"
-                          : "estado"
-                      }
-                    >
+    const porcentaje =
+        totalActividades === 0
+            ? 0
+            : Math.round(
+                (actividadesCompletadas / totalActividades)
+                * 100
+            );
 
-                      {actividad.estado}
 
+    /*
+    ============================================================
+    MENSAJE
+    ============================================================
+    */
+
+    const obtenerMensaje = () => {
+
+        if (porcentaje === 100) {
+
+            return {
+                titulo: "¡Día completado!",
+                texto:
+                    "Cumpliste todos tus objetivos de hoy. Excelente disciplina.",
+            };
+
+        }
+
+        if (porcentaje >= 75) {
+
+            return {
+                titulo: "Excelente progreso",
+                texto:
+                    "Ya completaste gran parte de tu rutina. Falta muy poco.",
+            };
+
+        }
+
+        if (porcentaje >= 50) {
+
+            return {
+                titulo: "Vas por buen camino",
+                texto:
+                    `${actividadesCompletadas} de ${totalActividades} actividades completadas.`,
+            };
+
+        }
+
+        if (porcentaje > 0) {
+
+            return {
+                titulo: "Buen comienzo",
+                texto:
+                    "Ya comenzaste tu día. Cada actividad completada suma.",
+            };
+
+        }
+
+        return {
+            titulo: "Comienza tu día",
+            texto:
+                "Marca cada actividad cuando la completes y observa tu progreso.",
+        };
+
+    };
+
+
+    const mensaje =
+        obtenerMensaje();
+
+
+    return (
+
+        <main className="dia-page">
+
+
+            {/* ==================================================
+                HERO
+            ================================================== */}
+
+            <section
+                className="dia-hero"
+                style={{
+                    backgroundImage:
+                        `url(${heroMontanas})`,
+                }}
+            >
+
+                <div className="dia-hero-overlay"></div>
+
+
+                <div className="dia-container dia-hero-content">
+
+                    <span className="dia-label">
+                        MI DÍA
                     </span>
 
-                  </div>
 
-                )
-              )
-            }
+                    <h1>
+                        Organiza hoy.
+                        <br />
 
-          </div>
-
-
-          <aside className="actividades-laterales">
-
-            <h2>
-              Mis actividades
-            </h2>
+                        <strong>
+                            Avanza mañana.
+                        </strong>
+                    </h1>
 
 
-            <div className="actividad-lateral gimnasio">
+                    <p>
+                        Mantén el equilibrio entre trabajo,
+                        estudios, gimnasio, boxeo y vida personal.
+                    </p>
 
-              🏋️
+                </div>
 
-              <div>
-
-                <strong>
-                  Gimnasio
-                </strong>
-
-                <span>
-                  Entrenamiento y salud
-                </span>
-
-              </div>
-
-            </div>
+            </section>
 
 
-            <div className="actividad-lateral boxeo">
 
-              🥊
+            {/* ==================================================
+                DASHBOARD
+            ================================================== */}
 
-              <div>
+            <section className="dia-dashboard">
 
-                <strong>
-                  Boxeo
-                </strong>
-
-                <span>
-                  Entrenamiento de boxeo
-                </span>
-
-              </div>
-
-            </div>
+                <div className="dia-container dia-grid">
 
 
-            <div className="actividad-lateral estudio">
+                    {/* ==================================================
+                        PLANIFICACIÓN
+                    ================================================== */}
 
-              🎓
+                    <section className="dia-card agenda-card">
 
-              <div>
+                        <div className="dia-card-header">
 
-                <strong>
-                  Estudio
-                </strong>
+                            <div>
 
-                <span>
-                  Tareas, clases y pruebas
-                </span>
+                                <span className="mini-label">
+                                    ORDEN DEL DÍA
+                                </span>
 
-              </div>
+                                <h2>
+                                    Mi planificación
+                                </h2>
 
-            </div>
+                            </div>
 
 
-            <div className="actividad-lateral tareas">
+                            <strong>
+                                Octubre 2026
+                            </strong>
 
-              ✅
+                        </div>
 
-              <div>
 
-                <strong>
-                  Tareas pendientes
-                </strong>
 
-                <span>
-                  Revisa tus pendientes
-                </span>
+                        <div className="agenda-list">
 
-              </div>
+                            {actividades.map((actividad) => (
 
-            </div>
+                                <article
+                                    key={actividad.id}
+                                    className={
+                                        `agenda-item ${
+                                            actividad.realizado
+                                                ? "actividad-realizada"
+                                                : ""
+                                        }`
+                                    }
+                                >
 
-          </aside>
+                                    <button
+                                        type="button"
+                                        className={
+                                            `agenda-check ${
+                                                actividad.realizado
+                                                    ? "checked"
+                                                    : ""
+                                            }`
+                                        }
+                                        onClick={() =>
+                                            cambiarEstado(
+                                                actividad.id
+                                            )
+                                        }
+                                    >
 
-        </div>
+                                        {
+                                            actividad.realizado
+                                                ? "✓"
+                                                : ""
+                                        }
 
-      </div>
+                                    </button>
 
-    </section>
 
-  );
+                                    <div className="agenda-hora">
+                                        {actividad.hora}
+                                    </div>
+
+
+                                    <div className="agenda-icono">
+                                        {actividad.icono}
+                                    </div>
+
+
+                                    <div className="agenda-info">
+
+                                        <strong>
+                                            {actividad.titulo}
+                                        </strong>
+
+                                        <span>
+                                            {actividad.detalle}
+                                        </span>
+
+                                    </div>
+
+
+                                    <div
+                                        className={
+                                            actividad.realizado
+                                                ? "agenda-estado completado"
+                                                : "agenda-estado pendiente"
+                                        }
+                                    >
+
+                                        {
+                                            actividad.realizado
+                                                ? "Completado"
+                                                : "Pendiente"
+                                        }
+
+                                    </div>
+
+                                </article>
+
+                            ))}
+
+                        </div>
+
+                    </section>
+
+
+
+                    {/* ==================================================
+                        LADO DERECHO
+                    ================================================== */}
+
+                    <aside className="dia-side">
+
+
+                        {/* PROGRESO */}
+
+                        <section className="dia-card progreso-card">
+
+                            <span className="mini-label">
+                                PROGRESO DIARIO
+                            </span>
+
+
+                            <div className="progreso-layout">
+
+
+                                <div
+                                    className="circulo-progreso"
+                                    style={{
+                                        "--progreso":
+                                            `${porcentaje * 3.6}deg`,
+                                    }}
+                                >
+
+                                    <div className="circulo-interior">
+
+                                        <div className="numero-porcentaje">
+
+                                            <span>
+                                                {porcentaje}
+                                            </span>
+
+                                            <span>
+                                                %
+                                            </span>
+
+                                        </div>
+
+                                        <small>
+                                            completado
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div className="progreso-texto">
+
+                                    <h3>
+                                        {mensaje.titulo}
+                                    </h3>
+
+                                    <p>
+                                        {mensaje.texto}
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+
+
+                        {/* HÁBITOS */}
+
+                        <section className="dia-card habitos-card">
+
+                            <span className="mini-label">
+                                HÁBITOS
+                            </span>
+
+                            <h2>
+                                Hábitos de hoy
+                            </h2>
+
+
+                            {actividades.map((actividad) => (
+
+                                <div
+                                    className="habito-item"
+                                    key={`habito-${actividad.id}`}
+                                >
+
+                                    <div className="habito-row">
+
+                                        <span>
+                                            {actividad.icono}
+                                            {" "}
+                                            {actividad.titulo}
+                                        </span>
+
+
+                                        <strong>
+                                            {
+                                                actividad.realizado
+                                                    ? "100%"
+                                                    : "0%"
+                                            }
+                                        </strong>
+
+                                    </div>
+
+
+                                    <div className="progress-line">
+
+                                        <div
+                                            style={{
+                                                width:
+                                                    actividad.realizado
+                                                        ? "100%"
+                                                        : "0%",
+                                            }}
+                                        ></div>
+
+                                    </div>
+
+                                </div>
+
+                            ))}
+
+                        </section>
+
+
+                    </aside>
+
+                </div>
+
+
+
+                {/* ==================================================
+                    RESUMEN
+                ================================================== */}
+
+                <div className="dia-container">
+
+                    <section className="dia-card dia-resumen">
+
+                        <div>
+
+                            <span className="mini-label">
+                                RESUMEN DEL DÍA
+                            </span>
+
+                            <h2>
+                                Tu progreso de hoy
+                            </h2>
+
+                            <p>
+                                Cada check actualiza automáticamente
+                                tu progreso.
+                            </p>
+
+                        </div>
+
+
+                        <div className="dia-resumen-numeros">
+
+                            <div>
+                                <strong>
+                                    {totalActividades}
+                                </strong>
+
+                                <span>
+                                    Actividades
+                                </span>
+                            </div>
+
+
+                            <div>
+                                <strong>
+                                    {actividadesCompletadas}
+                                </strong>
+
+                                <span>
+                                    Completadas
+                                </span>
+                            </div>
+
+
+                            <div>
+                                <strong>
+                                    {
+                                        totalActividades -
+                                        actividadesCompletadas
+                                    }
+                                </strong>
+
+                                <span>
+                                    Pendientes
+                                </span>
+                            </div>
+
+
+                            <div>
+                                <strong>
+                                    {porcentaje}%
+                                </strong>
+
+                                <span>
+                                    Progreso
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    );
 
 }
+
 
 export default MiDia;

@@ -2882,6 +2882,667 @@ textarea {
 
 }
 
+/*
+==============================================================
+REDISEÑO GLOBAL PREMIUM LIFETRACK
+HEADER OFICIAL
+==============================================================
+*/
+
+
+.header-principal {
+
+    width:
+        100%;
+
+    position:
+        sticky;
+
+    top:
+        0;
+
+    z-index:
+        2000;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border-bottom:
+        1px solid #e5edf7;
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+
+.contenedor-header {
+
+    width:
+        min(1500px, 94%);
+
+    min-height:
+        82px;
+
+    margin:
+        0 auto;
+
+    padding:
+        9px 0;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        28px;
+
+}
+
+
+
+.logo-lifetrack {
+
+    min-width:
+        225px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    color:
+        #092b5e;
+
+}
+
+
+
+.logo-circulo {
+
+    width:
+        50px;
+
+    height:
+        50px;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e3c7b,
+            #082955
+        );
+
+    font-size:
+        29px;
+
+    font-weight:
+        900;
+
+    box-shadow:
+        0 10px 25px
+        rgba(11,45,91,0.15);
+
+}
+
+
+
+.logo-texto h2 {
+
+    margin:
+        0;
+
+    color:
+        #0b2b59;
+
+    font-size:
+        26px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        -1px;
+
+}
+
+
+
+.logo-texto span {
+
+    display:
+        block;
+
+    margin-top:
+        1px;
+
+    color:
+        #77869a;
+
+    font-size:
+        10px;
+
+}
+
+
+
+.menu-principal {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        22px;
+
+}
+
+
+
+.menu-principal a {
+
+    position:
+        relative;
+
+    padding:
+        29px 0 26px;
+
+    border-bottom:
+        none;
+
+    color:
+        #0d203e;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+    white-space:
+        nowrap;
+
+}
+
+
+
+.menu-principal a::after {
+
+    content:
+        "";
+
+    width:
+        0;
+
+    height:
+        3px;
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    bottom:
+        14px;
+
+    border-radius:
+        5px;
+
+    background:
+        #1769ff;
+
+    transition:
+        0.25s ease;
+
+}
+
+
+
+.menu-principal a:hover,
+.menu-principal a.active {
+
+    color:
+        #1769ff;
+
+}
+
+
+
+.menu-principal a:hover::after,
+.menu-principal a.active::after {
+
+    width:
+        100%;
+
+    left:
+        0;
+
+}
+
+
+
+.menu-principal
+.boton-portafolio-menu {
+
+    color:
+        #0a2e5e;
+
+}
+
+
+
+.acciones-header {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        10px;
+
+}
+
+
+
+.icono-carrito {
+
+    min-width:
+        42px;
+
+    min-height:
+        42px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border-radius:
+        50%;
+
+    color:
+        #16365f;
+
+    background:
+        #f5f8fc;
+
+    font-size:
+        21px;
+
+}
+
+
+
+.contador-carrito {
+
+    min-width:
+        19px;
+
+    height:
+        19px;
+
+    top:
+        -2px;
+
+    right:
+        -2px;
+
+}
+
+
+
+.btn-login-header,
+.btn-registro-header,
+.btn-cerrar-header {
+
+    min-height:
+        43px;
+
+    padding:
+        0 20px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    border-radius:
+        24px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        800;
+
+    transition:
+        0.25s ease;
+
+}
+
+
+
+.btn-login-header {
+
+    color:
+        #17365f;
+
+    border:
+        1px solid #c9d8e8;
+
+    background:
+        white;
+
+}
+
+
+
+.btn-registro-header {
+
+    color:
+        white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #082954,
+            #0c417f
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(10,45,92,0.16);
+
+}
+
+
+
+.btn-cerrar-header {
+
+    border:
+        none;
+
+    color:
+        white;
+
+    background:
+        #dc3545;
+
+}
+
+
+
+.btn-login-header:hover,
+.btn-registro-header:hover,
+.btn-cerrar-header:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+
+.usuario-header {
+
+    color:
+        #17365f;
+
+    font-size:
+        13px;
+
+    font-weight:
+        800;
+
+}
+
+
+
+/*
+==============================================================
+RESPONSIVE HEADER
+==============================================================
+*/
+
+@media (max-width: 1250px) {
+
+    .contenedor-header {
+
+        flex-wrap:
+            wrap;
+
+    }
+
+
+    .menu-principal {
+
+        order:
+            3;
+
+        width:
+            100%;
+
+        overflow-x:
+            auto;
+
+        justify-content:
+            flex-start;
+
+    }
+
+
+    .menu-principal a {
+
+        padding:
+            12px 0 16px;
+
+    }
+
+
+    .menu-principal a::after {
+
+        bottom:
+            5px;
+
+    }
+
+}
+
+
+
+@media (max-width: 700px) {
+
+    .contenedor-header {
+
+        width:
+            92%;
+
+    }
+
+
+    .logo-texto span {
+
+        display:
+            none;
+
+    }
+
+
+    .logo-circulo {
+
+        width:
+            42px;
+
+        height:
+            42px;
+
+    }
+
+
+    .logo-texto h2 {
+
+        font-size:
+            22px;
+
+    }
+
+
+    .acciones-header {
+
+        gap:
+            6px;
+
+    }
+
+
+    .btn-login-header,
+    .btn-registro-header {
+
+        padding:
+            0 12px;
+
+        font-size:
+            10px;
+
+    }
+
+
+    .usuario-header {
+
+        display:
+            none;
+
+    }
+
+}
 
 
 }
+
+/*
+============================================================
+BLOG LIFETRACK - IMÁGENES
+============================================================
+*/
+
+.blog-card-visual {
+
+    padding: 0;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.blog-card-visual:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 18px 38px
+        rgba(13, 44, 97, 0.14);
+
+}
+
+
+.blog-imagen {
+
+    width: 100%;
+
+    height: 230px;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+.blog-contenido {
+
+    padding: 26px;
+
+}
+
+
+.blog-contenido > span {
+
+    color: #1769ff;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.blog-contenido h2 {
+
+    margin: 12px 0;
+
+    color: #0d2c61;
+
+}
+
+
+.blog-contenido p {
+
+    min-height: 65px;
+
+    color: #647188;
+
+    line-height: 1.6;
+
+}
+

@@ -1,0 +1,726 @@
+/*
+============================================================
+PAGES PREMIUM - LIFETRACK
+Diseño general de las páginas interiores
+============================================================
+*/
+
+.premium-page {
+    width: 100%;
+    min-height: 100vh;
+    background: #f7f9fc;
+    color: #0b2d61;
+    overflow-x: hidden;
+}
+
+.premium-container {
+    width: min(1380px, 92%);
+    margin: 0 auto;
+}
+
+/*
+============================================================
+HERO INTERIOR
+============================================================
+*/
+
+.inner-hero {
+    width: 100%;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.inner-hero-image {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+.inner-hero-button {
+    position: absolute;
+    left: 7%;
+    bottom: 42px;
+
+    min-height: 50px;
+    padding: 0 27px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 999px;
+
+    color: #ffffff;
+    background: linear-gradient(135deg, #0b4ca1, #2478ff);
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
+
+    box-shadow: 0 15px 30px rgba(18, 92, 205, 0.26);
+
+    cursor: pointer;
+}
+
+/*
+============================================================
+ENCABEZADOS
+============================================================
+*/
+
+.page-heading {
+    padding: 55px 0 30px;
+}
+
+.page-heading span {
+    display: block;
+    margin-bottom: 10px;
+
+    color: #176aff;
+
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 4px;
+}
+
+.page-heading h1 {
+    margin: 0;
+
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.05;
+
+    color: #0b2d61;
+    font-weight: 900;
+}
+
+.page-heading h1 strong {
+    color: #176aff;
+}
+
+.page-heading p {
+    max-width: 740px;
+
+    margin: 15px 0 0;
+
+    color: #617896;
+
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+/*
+============================================================
+TARJETAS
+============================================================
+*/
+
+.premium-card {
+    background: #ffffff;
+
+    border: 1px solid #e2eaf4;
+    border-radius: 24px;
+
+    box-shadow: 0 14px 34px rgba(13, 50, 98, 0.08);
+}
+
+.premium-card-title {
+    color: #0e356d;
+    font-weight: 900;
+}
+
+/*
+============================================================
+MI DÍA
+============================================================
+*/
+
+.day-layout {
+    padding-bottom: 80px;
+
+    display: grid;
+    grid-template-columns: 1.6fr 0.8fr;
+    gap: 24px;
+}
+
+.day-planner {
+    padding: 28px;
+}
+
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.day-header h2 {
+    margin: 0;
+    color: #0b2d61;
+}
+
+.day-date {
+    color: #176aff;
+    font-weight: 800;
+}
+
+.day-event {
+    min-height: 64px;
+
+    margin-bottom: 14px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 16px;
+
+    color: #12376c;
+    font-weight: 800;
+}
+
+.day-event.work {
+    background: #fff0c9;
+}
+
+.day-event.study {
+    background: #dceafd;
+}
+
+.day-event.gym {
+    background: #daf3e4;
+}
+
+.day-event.boxing {
+    background: #fbdce4;
+}
+
+.day-side {
+    display: grid;
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 24px;
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    color: #12376c;
+}
+
+.progress-track {
+    height: 12px;
+    overflow: hidden;
+
+    background: #edf2f8;
+    border-radius: 999px;
+}
+
+.progress-fill {
+    width: 72%;
+    height: 100%;
+
+    background: linear-gradient(90deg, #176aff, #38a0ff);
+    border-radius: 999px;
+}
+
+/*
+============================================================
+TAREAS
+============================================================
+*/
+
+.tasks-toolbar {
+    margin-bottom: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.tasks-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tasks-filter button {
+    min-height: 40px;
+    padding: 0 17px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: #edf4ff;
+    color: #21466f;
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.tasks-filter button.active {
+    color: white;
+    background: #176aff;
+}
+
+.tasks-grid {
+    padding-bottom: 80px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.task-column {
+    padding: 22px;
+}
+
+.task-column h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.task-item {
+    margin-top: 14px;
+    padding: 17px;
+
+    background: #f7f9fc;
+
+    border: 1px solid #e5ecf5;
+    border-radius: 16px;
+}
+
+.task-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #12376c;
+}
+
+.task-item span {
+    font-size: 12px;
+    color: #7587a1;
+}
+
+/*
+============================================================
+TIENDA
+============================================================
+*/
+
+.shop-controls {
+    position: relative;
+    z-index: 5;
+
+    margin-top: -28px;
+}
+
+.shop-control-box {
+    padding: 14px 18px;
+
+    display: grid;
+    grid-template-columns: 300px 1fr auto;
+    gap: 15px;
+    align-items: center;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+    border: 1px solid #e2eaf4;
+
+    box-shadow: 0 15px 35px rgba(13, 50, 98, 0.1);
+}
+
+.shop-search {
+    min-height: 46px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #dce6f2;
+    border-radius: 13px;
+
+    background: #f7f9fc;
+}
+
+.shop-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+}
+
+.shop-categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.shop-categories button {
+    min-height: 40px;
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f1f5fa;
+    color: #345271;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.shop-categories button.active {
+    color: white;
+    background: #176aff;
+}
+
+.shop-cart-link {
+    min-height: 46px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: #edf4ff;
+    color: #176aff;
+
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.shop-grid {
+    padding-bottom: 80px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.shop-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 22px;
+    border: 1px solid #e3ebf5;
+
+    box-shadow: 0 14px 30px rgba(13, 50, 98, 0.07);
+}
+
+.shop-card-image {
+    height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f7fb;
+}
+
+.shop-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.shop-card-body {
+    padding: 18px;
+}
+
+.shop-card-body h3 {
+    margin: 0 0 8px;
+    color: #12376c;
+}
+
+.shop-price {
+    color: #176aff;
+    font-weight: 900;
+}
+
+.shop-card-button {
+    min-height: 42px;
+    margin-top: 12px;
+
+    padding: 0 15px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    color: #ffffff;
+    background: #176aff;
+
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/*
+============================================================
+BLOG
+============================================================
+*/
+
+.blog-grid {
+    padding-bottom: 80px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.blog-card {
+    overflow: hidden;
+}
+
+.blog-card-image {
+    height: 220px;
+
+    background: linear-gradient(135deg, #eaf2ff, #d9e9ff);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+}
+
+.blog-card-content {
+    padding: 20px;
+}
+
+.blog-category {
+    color: #176aff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.blog-card-content h2 {
+    margin: 8px 0;
+
+    color: #0f356d;
+    font-size: 21px;
+}
+
+.blog-card-content p {
+    color: #6b809b;
+    line-height: 1.6;
+}
+
+/*
+============================================================
+NOSOTROS
+============================================================
+*/
+
+.about-image-section {
+    position: relative;
+}
+
+.about-image-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.team-list {
+    padding: 60px 0 80px;
+
+    display: grid;
+    gap: 30px;
+}
+
+.team-image-card {
+    overflow: hidden;
+}
+
+.team-image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.mario-about {
+    padding: 28px;
+
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.mario-about-image img {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+}
+
+.mario-about h2 {
+    margin: 0;
+    font-size: 42px;
+    color: #0b2d61;
+}
+
+.mario-about h3 {
+    color: #176aff;
+}
+
+.mario-about p {
+    color: #647b98;
+    line-height: 1.7;
+}
+
+.portfolio-button {
+    min-height: 48px;
+    padding: 0 24px;
+
+    display: inline-flex;
+    align-items: center;
+
+    color: white;
+    background: #176aff;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+    font-weight: 800;
+}
+
+/*
+============================================================
+CONTACTO
+============================================================
+*/
+
+.contact-layout {
+    padding-bottom: 80px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.contact-form-card,
+.contact-info-card {
+    padding: 30px;
+}
+
+.contact-form-card label {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color: #17396d;
+    font-weight: 800;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    margin-top: 7px;
+    padding: 14px;
+
+    border: 1px solid #dbe5f0;
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    outline: none;
+}
+
+.contact-form-card textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-button {
+    min-height: 48px;
+    padding: 0 24px;
+
+    border: none;
+    border-radius: 999px;
+
+    color: white;
+    background: #176aff;
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.contact-info-row {
+    margin-bottom: 22px;
+    padding: 17px;
+
+    background: #f5f8fc;
+
+    border-radius: 16px;
+}
+
+/*
+============================================================
+RESPONSIVE
+============================================================
+*/
+
+@media (max-width: 1050px) {
+    .day-layout,
+    .contact-layout,
+    .mario-about {
+        grid-template-columns: 1fr;
+    }
+
+    .tasks-grid,
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .shop-control-box {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mario-about-image {
+        max-width: 500px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .tasks-grid,
+    .blog-grid,
+    .shop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tasks-toolbar {
+        flex-direction: column;
+    }
+
+    .inner-hero-button {
+        left: 5%;
+        bottom: 20px;
+    }
+}

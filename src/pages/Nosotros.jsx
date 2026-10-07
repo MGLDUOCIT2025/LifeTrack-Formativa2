@@ -1,88 +1,147 @@
+/*
+============================================================
+NOSOTROS.JSX
+LifeTrack
+============================================================
+*/
+
+import { Link } from "react-router-dom";
+
+import "./NosotrosPremium.css";
+
+
+/* =========================================================
+   IMÁGENES DEL EQUIPO
+========================================================= */
+
+import nosotrosHero from "../assets/lifetrack/nosotros-hero.png";
+
+import nosotrosMario from "../assets/lifetrack/nosotros-mario.png";
+
+import nosotrosAndrea from "../assets/lifetrack/nosotros-andrea.png";
+
+import nosotrosLuis from "../assets/lifetrack/nosotros-luis.png";
+
+import nosotrosValentina from "../assets/lifetrack/nosotros-valentina.png";
+
+
 function Nosotros() {
 
-  return (
+    return (
 
-    <section className="seccion-general">
-
-      <div className="container">
-
-        <div className="cabecera-pagina">
-
-          <span>
-            SOBRE LIFETRACK
-          </span>
-
-          <h1>
-            Una plataforma creada desde una necesidad real
-          </h1>
-
-        </div>
+        <main className="nosotros-page">
 
 
-        <div className="nosotros-card">
+            {/* =================================================
+                HERO NOSOTROS
+            ================================================= */}
 
-          <h2>
-            ¿Por qué nació LifeTrack?
-          </h2>
+            <section className="nosotros-hero">
 
+                <img
 
-          <p>
+                    src={nosotrosHero}
 
-            LifeTrack nace como un proyecto
-            pensado para personas que deben
-            combinar diferentes responsabilidades
-            durante el día.
+                    alt="Equipo LifeTrack"
 
-          </p>
+                />
 
-
-          <p>
-
-            Trabajo, estudios, gimnasio,
-            actividades deportivas y vida
-            personal pueden transformarse
-            rápidamente en una rutina difícil
-            de organizar.
-
-          </p>
+            </section>
 
 
-          <p>
+            {/* =================================================
+                MARIO
+            ================================================= */}
 
-            Por eso LifeTrack busca entregar
-            una plataforma sencilla donde una
-            persona pueda visualizar su día,
-            organizar tareas, controlar sus
-            actividades y encontrar productos
-            relacionados con su estilo de vida.
+            <section className="nosotros-integrante nosotros-mario">
 
-          </p>
+                <img
 
+                    src={nosotrosMario}
 
-          <h3>
-            Nuestro primer usuario
-          </h3>
+                    alt="Mario - fundador de LifeTrack"
+
+                />
 
 
-          <p>
+                {/*
+                El botón está separado del texto.
 
-            El primer usuario utilizado para
-            probar LifeTrack representa exactamente
-            este problema: una persona que trabaja,
-            estudia Ingeniería en Informática,
-            entrena en gimnasio y boxeo y necesita
-            administrar correctamente su tiempo.
+                Lo dejamos a la DERECHA para no tapar
+                los cuadros de la imagen.
+                */}
 
-          </p>
+                <Link
 
-        </div>
+                    to="/portafolio"
 
-      </div>
+                    className="nosotros-portafolio-button"
 
-    </section>
+                >
 
-  );
+                    Ver mi portafolio →
+
+                </Link>
+
+            </section>
+
+
+            {/* =================================================
+                ANDREA
+            ================================================= */}
+
+            <section className="nosotros-integrante">
+
+                <img
+
+                    src={nosotrosAndrea}
+
+                    alt="Andrea - Diseñadora y cofundadora"
+
+                />
+
+            </section>
+
+
+            {/* =================================================
+                LUIS
+            ================================================= */}
+
+            <section className="nosotros-integrante">
+
+                <img
+
+                    src={nosotrosLuis}
+
+                    alt="Luis - Soporte y Operaciones"
+
+                />
+
+            </section>
+
+
+            {/* =================================================
+                VALENTINA
+            ================================================= */}
+
+            <section className="nosotros-integrante">
+
+                <img
+
+                    src={nosotrosValentina}
+
+                    alt="Valentina - Marketing y Contenido"
+
+                />
+
+            </section>
+
+
+        </main>
+
+    );
 
 }
+
 
 export default Nosotros;

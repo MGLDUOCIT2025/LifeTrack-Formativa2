@@ -1,0 +1,660 @@
+/*
+============================================================
+TAREAS PREMIUM.CSS
+============================================================
+*/
+
+
+.task-page {
+
+    min-height: 100vh;
+
+    background: #f4f8fd;
+
+}
+
+
+.task-container {
+
+    width: min(1350px, 92%);
+
+    margin: 0 auto;
+
+}
+
+
+
+/*
+============================================================
+HERO
+============================================================
+*/
+
+.task-hero {
+
+    position: relative;
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.task-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(255,255,255,0.98) 0%,
+
+            rgba(255,255,255,0.88) 37%,
+
+            rgba(255,255,255,0.38) 70%,
+
+            rgba(255,255,255,0.08) 100%
+
+        );
+
+}
+
+
+.task-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.task-label {
+
+    color: #1769ff;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+.task-hero h1 {
+
+    max-width: 680px;
+
+    margin: 15px 0;
+
+    color: #0b2d61;
+
+    font-size: clamp(48px,5vw,72px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+}
+
+
+.task-hero h1 strong {
+
+    color: #1769ff;
+
+}
+
+
+.task-hero p {
+
+    color: #536b89;
+
+    font-size: 17px;
+
+}
+
+
+
+/*
+============================================================
+CONTENIDO
+============================================================
+*/
+
+.task-content {
+
+    padding: 45px 0 90px;
+
+}
+
+
+.task-dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+        0.65fr
+        0.65fr
+        1.4fr;
+
+    gap: 20px;
+
+}
+
+
+
+/*
+============================================================
+ESTADÍSTICAS
+============================================================
+*/
+
+.task-stat,
+.task-progress-card {
+
+    background: white;
+
+    border: 1px solid #dce5ef;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px
+        rgba(13,44,97,0.08);
+
+}
+
+
+.task-stat {
+
+    min-height: 165px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+}
+
+
+.task-stat-icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #edf4ff;
+
+    border-radius: 16px;
+
+    font-size: 25px;
+
+}
+
+
+.task-stat strong {
+
+    display: block;
+
+    color: #0b2d61;
+
+    font-size: 32px;
+
+}
+
+
+.task-stat span {
+
+    color: #73829a;
+
+}
+
+
+
+/*
+============================================================
+PROGRESO
+============================================================
+*/
+
+.task-progress-card {
+
+    min-height: 165px;
+
+    padding: 22px 30px;
+
+    display: grid;
+
+    grid-template-columns:
+        125px
+        1fr;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+
+.task-circle {
+
+    width: 125px;
+
+    height: 125px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+
+        conic-gradient(
+
+            #1769ff 0deg,
+
+            #1769ff var(--task-progress),
+
+            #e5edf7 var(--task-progress),
+
+            #e5edf7 360deg
+
+        );
+
+}
+
+
+.task-circle-inner {
+
+    width: 91px;
+
+    height: 91px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.task-percent {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    white-space: nowrap;
+
+    color: #1769ff;
+
+}
+
+
+.task-percent span:first-child {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+}
+
+
+.task-percent span:last-child {
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+}
+
+
+.task-circle-inner small {
+
+    color: #74849a;
+
+    font-size: 9px;
+
+}
+
+
+.task-progress-text > span {
+
+    color: #1769ff;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+}
+
+
+.task-progress-text h2 {
+
+    margin: 8px 0;
+
+    color: #0b2d61;
+
+    font-size: 28px;
+
+}
+
+
+.task-progress-text p {
+
+    margin: 0;
+
+    color: #718098;
+
+}
+
+
+
+/*
+============================================================
+FORMULARIO
+============================================================
+*/
+
+.task-form {
+
+    margin-top: 25px;
+
+    padding: 16px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 15px;
+
+    background: white;
+
+    border: 1px solid #dce5ef;
+
+    border-radius: 18px;
+
+}
+
+
+.task-form input {
+
+    min-height: 50px;
+
+    padding: 0 13px;
+
+    border: none;
+
+    outline: none;
+
+}
+
+
+.task-form button {
+
+    padding: 0 24px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #1769ff;
+
+    color: white;
+
+    font-weight: 900;
+
+}
+
+
+
+/*
+============================================================
+FILTROS
+============================================================
+*/
+
+.task-filters {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin: 25px 0;
+
+}
+
+
+.task-filters button {
+
+    padding: 11px 20px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: #e9f0fa;
+
+    color: #17396d;
+
+    font-weight: 800;
+
+}
+
+
+.task-filters button.active {
+
+    background: #1769ff;
+
+    color: white;
+
+}
+
+
+
+/*
+============================================================
+TAREAS
+============================================================
+*/
+
+.task-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.task-item {
+
+    min-height: 75px;
+
+    padding: 16px 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        45px
+        1fr
+        auto;
+
+    align-items: center;
+
+    background: white;
+
+    border: 1px solid #dce5ef;
+
+    border-radius: 16px;
+
+}
+
+
+.task-check {
+
+    width: 34px;
+
+    height: 34px;
+
+    border: 2px solid #1769ff;
+
+    border-radius: 10px;
+
+    background: white;
+
+    color: white;
+
+    font-weight: 900;
+
+}
+
+
+.task-item.done .task-check {
+
+    background: #1769ff;
+
+}
+
+
+.task-item-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.task-item-info strong {
+
+    color: #0b2d61;
+
+}
+
+
+.task-item-info span {
+
+    color: #7b8a9f;
+
+    font-size: 12px;
+
+}
+
+
+.task-item.done .task-item-info strong {
+
+    color: #9aa5b4;
+
+    text-decoration: line-through;
+
+}
+
+
+.task-delete {
+
+    padding: 8px 13px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #fff0f0;
+
+    color: #d83f3f;
+
+}
+
+
+
+/*
+============================================================
+RESPONSIVE
+============================================================
+*/
+
+@media(max-width:950px) {
+
+    .task-dashboard {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    .task-progress-card {
+
+        grid-column:
+            1 / -1;
+
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .task-dashboard {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .task-progress-card {
+
+        grid-column: auto;
+
+    }
+
+
+    .task-form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
