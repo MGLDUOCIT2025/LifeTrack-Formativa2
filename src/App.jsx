@@ -1,142 +1,209 @@
+/*
+============================================================
+APP.JSX
+Sistema principal de rutas de LifeTrack
+============================================================
+*/
+
 import {
-    Route,
-    Routes
+  Routes,
+  Route
 } from "react-router-dom";
+
+
+/*
+============================================================
+COMPONENTES GENERALES
+============================================================
+*/
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
-import Home from "./pages/Home.jsx";
-import Productos from "./pages/Productos.jsx";
-import ProductoDetalle from "./pages/ProductoDetalle.jsx";
-import MiDia from "./pages/MiDia.jsx";
-import Tareas from "./pages/Tareas.jsx";
-import Blog from "./pages/Blog.jsx";
-import Nosotros from "./pages/Nosotros.jsx";
-import Contacto from "./pages/Contacto.jsx";
-import Login from "./pages/Login.jsx";
-import Registro from "./pages/Registro.jsx";
-import Carrito from "./pages/Carrito.jsx";
-import Admin from "./pages/Admin.jsx";
 
 /*
 ============================================================
-NUEVA PÁGINA PARA LA EVALUACIÓN FORMATIVA 2
+PÁGINAS
+============================================================
+*/
+
+import Home from "./pages/Home.jsx";
+import Productos from "./pages/Productos.jsx";
+import ProductoDetalle from "./pages/ProductoDetalle.jsx";
+
+import MiDia from "./pages/MiDia.jsx";
+import Tareas from "./pages/Tareas.jsx";
+
+import Blog from "./pages/Blog.jsx";
+import Nosotros from "./pages/Nosotros.jsx";
+import Contacto from "./pages/Contacto.jsx";
+
+import Login from "./pages/Login.jsx";
+import Registro from "./pages/Registro.jsx";
+
+import Carrito from "./pages/Carrito.jsx";
+import Admin from "./pages/Admin.jsx";
+
+
+/*
+============================================================
+EVALUACIÓN FORMATIVA N°2
+PORTAFOLIO
 ============================================================
 */
 
 import Portafolio from "./pages/Portafolio.jsx";
 
 
+/*
+============================================================
+APP
+============================================================
+*/
+
 function App() {
 
-    return (
+  return (
 
-        <div className="app">
+    <div className="app">
 
-            <Header />
+      {/* HEADER GLOBAL */}
 
-
-            <main>
-
-                <Routes>
+      <Header />
 
 
-                    <Route
-                        path="/"
-                        element={<Home />}
-                    />
+      {/* ==================================================
+          CONTENIDO PRINCIPAL
+      ================================================== */}
+
+      <main>
+
+        <Routes>
 
 
-                    <Route
-                        path="/productos"
-                        element={<Productos />}
-                    />
+          {/* ===============================================
+              INICIO
+          =============================================== */}
+
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
 
-                    <Route
-                        path="/producto/:codigo"
-                        element={<ProductoDetalle />}
-                    />
+          {/* ===============================================
+              PRODUCTOS
+          =============================================== */}
+
+          <Route
+            path="/productos"
+            element={<Productos />}
+          />
 
 
-                    <Route
-                        path="/mi-dia"
-                        element={<MiDia />}
-                    />
+          <Route
+            path="/producto/:codigo"
+            element={<ProductoDetalle />}
+          />
 
 
-                    <Route
-                        path="/tareas"
-                        element={<Tareas />}
-                    />
+          {/* ===============================================
+              ORGANIZACIÓN
+          =============================================== */}
+
+          <Route
+            path="/mi-dia"
+            element={<MiDia />}
+          />
 
 
-                    <Route
-                        path="/blog"
-                        element={<Blog />}
-                    />
+          <Route
+            path="/tareas"
+            element={<Tareas />}
+          />
 
 
-                    <Route
-                        path="/nosotros"
-                        element={<Nosotros />}
-                    />
+          {/* ===============================================
+              INFORMACIÓN
+          =============================================== */}
+
+          <Route
+            path="/blog"
+            element={<Blog />}
+          />
 
 
-                    <Route
-                        path="/contacto"
-                        element={<Contacto />}
-                    />
+          <Route
+            path="/nosotros"
+            element={<Nosotros />}
+          />
 
 
-                    <Route
-                        path="/login"
-                        element={<Login />}
-                    />
+          <Route
+            path="/contacto"
+            element={<Contacto />}
+          />
 
 
-                    <Route
-                        path="/registro"
-                        element={<Registro />}
-                    />
+          {/* ===============================================
+              AUTENTICACIÓN
+          =============================================== */}
+
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
 
-                    <Route
-                        path="/carrito"
-                        element={<Carrito />}
-                    />
+          <Route
+            path="/registro"
+            element={<Registro />}
+          />
 
 
-                    <Route
-                        path="/admin"
-                        element={<Admin />}
-                    />
+          {/* ===============================================
+              CARRITO
+          =============================================== */}
+
+          <Route
+            path="/carrito"
+            element={<Carrito />}
+          />
 
 
-                    {/*
-                    ============================================
-                    FORMativa 2
-                    ============================================
-                    */}
+          {/* ===============================================
+              ADMINISTRACIÓN
+          =============================================== */}
 
-                    <Route
-                        path="/portafolio"
-                        element={<Portafolio />}
-                    />
+          <Route
+            path="/admin"
+            element={<Admin />}
+          />
 
 
-                </Routes>
+          {/* ===============================================
+              EVALUACIÓN FORMATIVA N°2
+              PORTAFOLIO
+          =============================================== */}
 
-            </main>
+          <Route
+            path="/portafolio"
+            element={<Portafolio />}
+          />
 
 
-            <Footer />
+        </Routes>
+
+      </main>
 
 
-        </div>
+      {/* FOOTER GLOBAL */}
 
-    );
+      <Footer />
+
+    </div>
+
+  );
 
 }
 

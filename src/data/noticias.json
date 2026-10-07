@@ -1,30 +1,30 @@
 [
-    {
-        "id": 1,
-        "categoria": "lifetrack",
-        "titulo": "LifeTrack incorpora nuevas herramientas de organización",
-        "fecha": "06-10-2026",
-        "contenido": "El proyecto continúa evolucionando con módulos orientados a tareas, planificación diaria y seguimiento de actividades personales."
-    },
-    {
-        "id": 2,
-        "categoria": "lifetrack",
-        "titulo": "LifeTrack integra comercio electrónico",
-        "fecha": "06-10-2026",
-        "contenido": "La plataforma incorpora una tienda con productos, carrito de compras y gestión de usuarios."
-    },
-    {
-        "id": 3,
-        "categoria": "tecnologia",
-        "titulo": "React permite desarrollar aplicaciones mediante componentes",
-        "fecha": "06-10-2026",
-        "contenido": "React permite dividir una aplicación en componentes reutilizables que pueden recibir información mediante propiedades."
-    },
-    {
-        "id": 4,
-        "categoria": "tecnologia",
-        "titulo": "Las pruebas unitarias ayudan a mejorar el software",
-        "fecha": "06-10-2026",
-        "contenido": "Las pruebas permiten comprobar la lógica, los eventos y el comportamiento de los componentes antes de publicar una aplicación."
-    }
+  {
+    "id": 1,
+    "categoria": "LifeTrack",
+    "titulo": "LifeTrack incorpora nuevas herramientas de organización",
+    "fecha": "06-10-2026",
+    "descripcion": "El proyecto continúa evolucionando con módulos orientados a tareas, planificación diaria y seguimiento de actividades personales."
+  },
+  {
+    "id": 2,
+    "categoria": "LifeTrack",
+    "titulo": "LifeTrack integra comercio electrónico",
+    "fecha": "06-10-2026",
+    "descripcion": "La plataforma incorpora una tienda con productos, carrito de compras y gestión de usuarios."
+  },
+  {
+    "id": 3,
+    "categoria": "Tecnología",
+    "titulo": "React permite desarrollar aplicaciones mediante componentes",
+    "fecha": "06-10-2026",
+    "descripcion": "React permite dividir una aplicación en componentes reutilizables que pueden recibir información mediante propiedades."
+  },
+  {
+    "id": 4,
+    "categoria": "Tecnología",
+    "titulo": "Las pruebas unitarias ayudan a mejorar el software",
+    "fecha": "06-10-2026",
+    "descripcion": "Las pruebas permiten comprobar la lógica, los eventos y el comportamiento de los componentes antes de publicar una aplicación."
+  }
 ]

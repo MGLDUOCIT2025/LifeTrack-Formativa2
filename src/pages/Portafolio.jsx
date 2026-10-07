@@ -1,695 +1,771 @@
-// ============================================================
-// PORTAFOLIO.JSX
-// Evaluación Formativa N°2
-// Desarrollo Full Stack II
-//
-// En esta página utilizamos:
-// - React
-// - useState
-// - useEffect
-// - Props
-// - Componentes reutilizables
-// - React Bootstrap
-// - Grid responsivo
-// - Archivos JSON
-// - Formularios controlados
-// - Manejo de eventos
-// - Función externa para pruebas mediante Mock
-// ============================================================
+/*
+============================================================
+PORTAFOLIO.JSX
+
+Evaluación Formativa N°2
+Proyecto LifeTrack
+============================================================
+*/
+
+import { useState } from "react";
 
 import {
-    useEffect,
-    useState
-} from "react";
-
-import {
-    Alert,
-    Button,
-    Col,
-    Container,
-    Form,
-    Row
+  Container,
+  Row,
+  Col,
+  Button,
+  Form,
+  Alert
 } from "react-bootstrap";
 
 
-// ============================================================
-// COMPONENTES
-// ============================================================
+/*
+============================================================
+COMPONENTES REUTILIZABLES
+============================================================
+*/
 
 import AboutMe from "../components/AboutMe.jsx";
-
-import PortfolioProjectCard from
-    "../components/PortfolioProjectCard.jsx";
-
-import NewsCard from
-    "../components/NewsCard.jsx";
+import PortfolioProjectCard from "../components/PortfolioProjectCard.jsx";
+import NewsCard from "../components/NewsCard.jsx";
 
 
-// ============================================================
-// DATOS JSON
-// ============================================================
+/*
+============================================================
+ARCHIVOS JSON
+============================================================
+*/
 
-import proyectosData from
-    "../data/proyectos.json";
-
-import noticiasData from
-    "../data/noticias.json";
+import proyectos from "../data/proyectos.json";
+import noticias from "../data/noticias.json";
 
 
-// ============================================================
-// CSS EXCLUSIVO DE LA FORMativa
-// ============================================================
+/*
+============================================================
+ESTILOS
+============================================================
+*/
 
 import "../portfolio.css";
 
 
-// ============================================================
-// COMPONENTE PRINCIPAL
-//
-// onEnviarMensaje:
-// propiedad opcional que será utilizada durante las pruebas
-// para demostrar el uso de un Mock con Jasmine.
-// ============================================================
+/*
+============================================================
+COMPONENTE PRINCIPAL
+============================================================
+*/
 
 function Portafolio({ onEnviarMensaje }) {
 
-    // ========================================================
-    // STATE - PROYECTOS
-    // ========================================================
+  /*
+  ==========================================================
+  STATE
+  ==========================================================
+  */
 
-    const [proyectos, setProyectos] =
-        useState([]);
+  const [nombre, setNombre] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
-
-    // ========================================================
-    // STATE - NOTICIAS
-    // ========================================================
-
-    const [noticias, setNoticias] =
-        useState([]);
+  const [error, setError] = useState("");
+  const [mensajeExito, setMensajeExito] = useState("");
 
 
-    // ========================================================
-    // STATE - FORMULARIO
-    // ========================================================
+  /*
+  ==========================================================
+  VALIDAR CORREO
+  ==========================================================
+  */
 
-    const [formulario, setFormulario] =
-        useState({
+  const validarCorreo = (correoUsuario) => {
 
-            nombre: "",
-            email: "",
-            mensaje: ""
+    const expresionCorreo =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        });
+    return expresionCorreo.test(correoUsuario);
 
-
-    // ========================================================
-    // STATE - MENSAJES
-    // ========================================================
-
-    const [error, setError] =
-        useState("");
+  };
 
 
-    const [enviado, setEnviado] =
-        useState(false);
+  /*
+  ==========================================================
+  ENVÍO DEL FORMULARIO
+  ==========================================================
+  */
+
+  const manejarEnvio = (evento) => {
+
+    evento.preventDefault();
+
+    setError("");
+    setMensajeExito("");
 
 
-    // ========================================================
-    // CARGAR DATOS JSON
-    // ========================================================
+    /*
+    ========================================================
+    VALIDAR CAMPOS VACÍOS
+    ========================================================
+    */
 
-    useEffect(() => {
+    if (
+      nombre.trim() === "" ||
+      correo.trim() === "" ||
+      mensaje.trim() === ""
+    ) {
 
-        setProyectos(
-            proyectosData
-        );
+      /*
+      IMPORTANTE:
 
-        setNoticias(
-            noticiasData
-        );
+      Este texto debe coincidir exactamente
+      con la prueba unitaria.
+      */
 
-    }, []);
+      setError(
+        "Todos los campos son obligatorios."
+      );
 
-
-    // ========================================================
-    // FILTRAR NOTICIAS
-    // ========================================================
-
-    const noticiasLifeTrack =
-        noticias.filter(
-
-            (noticia) =>
-                noticia.categoria === "lifetrack"
-
-        );
-
-
-    const noticiasTecnologia =
-        noticias.filter(
-
-            (noticia) =>
-                noticia.categoria === "tecnologia"
-
-        );
-
-
-    // ========================================================
-    // MANEJAR CAMBIOS DEL FORMULARIO
-    // ========================================================
-
-    function handleChange(event) {
-
-        const {
-            name,
-            value
-        } = event.target;
-
-
-        setFormulario({
-
-            ...formulario,
-
-            [name]: value
-
-        });
+      return;
 
     }
 
 
-    // ========================================================
-    // ENVIAR FORMULARIO
-    // ========================================================
+    /*
+    ========================================================
+    VALIDAR CORREO
+    ========================================================
+    */
 
-    function handleSubmit(event) {
+    if (!validarCorreo(correo)) {
 
-        event.preventDefault();
+      setError(
+        "Debes ingresar un correo electrónico válido."
+      );
 
-
-        setError("");
-
-        setEnviado(false);
-
-
-        // ----------------------------------------------------
-        // VALIDACIÓN CAMPOS VACÍOS
-        // ----------------------------------------------------
-
-        if (
-            formulario.nombre.trim() === "" ||
-            formulario.email.trim() === "" ||
-            formulario.mensaje.trim() === ""
-        ) {
-
-            setError(
-                "Todos los campos son obligatorios."
-            );
-
-            return;
-
-        }
-
-
-        // ----------------------------------------------------
-        // VALIDACIÓN DE CORREO
-        // ----------------------------------------------------
-
-        if (
-            !formulario.email.includes("@")
-        ) {
-
-            setError(
-                "Debes ingresar un correo electrónico válido."
-            );
-
-            return;
-
-        }
-
-
-        // ----------------------------------------------------
-        // MOCK / FUNCIÓN EXTERNA
-        //
-        // Durante las pruebas enviaremos una función simulada
-        // creada con jasmine.createSpy().
-        // ----------------------------------------------------
-
-        if (onEnviarMensaje) {
-
-            onEnviarMensaje(
-                formulario
-            );
-
-        }
-
-
-        // ----------------------------------------------------
-        // ENVÍO CORRECTO
-        // ----------------------------------------------------
-
-        setEnviado(true);
-
-
-        // ----------------------------------------------------
-        // LIMPIAR FORMULARIO
-        // ----------------------------------------------------
-
-        setFormulario({
-
-            nombre: "",
-            email: "",
-            mensaje: ""
-
-        });
+      return;
 
     }
 
 
-    return (
+    /*
+    ========================================================
+    DATOS DEL FORMULARIO
+    ========================================================
+    */
 
-        <div className="formativa-page">
+    const datosFormulario = {
 
+      nombre,
+      correo,
+      mensaje
 
-            {/* =================================================
-                HERO
-            ================================================= */}
+    };
 
-            <section className="formativa-hero">
 
-                <Container>
+    /*
+    ========================================================
+    MOCK PARA LAS PRUEBAS
+    ========================================================
 
-                    <Row className="align-items-center gy-5">
+    Si la prueba envía una función simulada mediante
+    onEnviarMensaje, se ejecuta aquí.
 
+    Jasmine puede controlar esta función mediante
+    jasmine.createSpy().
+    ========================================================
+    */
 
-                        {/* COLUMNA TEXTO */}
+    if (onEnviarMensaje) {
 
-                        <Col
-                            xs={12}
-                            lg={7}
-                        >
+      onEnviarMensaje(datosFormulario);
 
-                            <p className="formativa-eyebrow">
+    }
 
-                                EVALUACIÓN FORMATIVA N°2
 
-                            </p>
+    /*
+    ========================================================
+    MENSAJE DE ÉXITO
+    ========================================================
+    */
 
-
-                            <h1 className="formativa-main-title">
-
-                                Mi Portafolio
-
-                                <span>
-                                    {" "}LifeTrack
-                                </span>
-
-                            </h1>
-
-
-                            <p className="formativa-description">
-
-                                Portafolio desarrollado utilizando
-                                React, React Bootstrap, componentes
-                                reutilizables, archivos JSON y manejo
-                                dinámico de datos.
-
-                            </p>
-
-
-                            <Button
-                                href="#proyectos-portafolio"
-                                variant="primary"
-                                size="lg"
-                            >
-
-                                Ver mis proyectos
-
-                            </Button>
-
-                        </Col>
-
-
-                        {/* COLUMNA PERFIL */}
-
-                        <Col
-                            xs={12}
-                            lg={5}
-                        >
-
-                            <div className="formativa-profile">
-
-                                <img
-                                    src="/mario.jpg"
-                                    alt="Mario González"
-                                    className="formativa-profile-photo"
-                                />
-
-
-                                <h2>
-
-                                    Mario González
-
-                                </h2>
-
-
-                                <p>
-
-                                    Estudiante de Ingeniería
-                                    en Informática
-
-                                </p>
-
-                            </div>
-
-                        </Col>
-
-                    </Row>
-
-                </Container>
-
-            </section>
-
-
-            {/* =================================================
-                SOBRE MÍ
-            ================================================= */}
-
-            <section className="formativa-content-section">
-
-                <AboutMe />
-
-            </section>
-
-
-            {/* =================================================
-                PROYECTOS
-            ================================================= */}
-
-            <section
-                id="proyectos-portafolio"
-                className="formativa-projects-section"
-            >
-
-                <Container>
-
-                    <h2 className="formativa-section-title light">
-
-                        Mis proyectos
-
-                    </h2>
-
-
-                    <Row className="g-4">
-
-                        {
-
-                            proyectos.map(
-
-                                (proyecto) => (
-
-                                    <Col
-                                        xs={12}
-                                        md={6}
-                                        lg={4}
-                                        key={proyecto.id}
-                                    >
-
-                                        <PortfolioProjectCard
-                                            proyecto={proyecto}
-                                        />
-
-                                    </Col>
-
-                                )
-
-                            )
-
-                        }
-
-                    </Row>
-
-                </Container>
-
-            </section>
-
-
-            {/* =================================================
-                NOTICIAS
-            ================================================= */}
-
-            <section className="formativa-news-section">
-
-                <Container>
-
-                    <h2 className="formativa-section-title">
-
-                        Noticias
-
-                    </h2>
-
-
-                    {/* ==========================================
-                        NOTICIAS LIFETRACK
-                    ========================================== */}
-
-                    <h3 className="formativa-news-title">
-
-                        LifeTrack
-
-                    </h3>
-
-
-                    <Row className="g-4 mb-5">
-
-                        {
-
-                            noticiasLifeTrack.map(
-
-                                (noticia) => (
-
-                                    <Col
-                                        xs={12}
-                                        md={6}
-                                        key={noticia.id}
-                                    >
-
-                                        <NewsCard
-                                            noticia={noticia}
-                                        />
-
-                                    </Col>
-
-                                )
-
-                            )
-
-                        }
-
-                    </Row>
-
-
-                    {/* ==========================================
-                        NOTICIAS TECNOLOGÍA
-                    ========================================== */}
-
-                    <h3 className="formativa-news-title">
-
-                        Tecnología
-
-                    </h3>
-
-
-                    <Row className="g-4">
-
-                        {
-
-                            noticiasTecnologia.map(
-
-                                (noticia) => (
-
-                                    <Col
-                                        xs={12}
-                                        md={6}
-                                        key={noticia.id}
-                                    >
-
-                                        <NewsCard
-                                            noticia={noticia}
-                                        />
-
-                                    </Col>
-
-                                )
-
-                            )
-
-                        }
-
-                    </Row>
-
-                </Container>
-
-            </section>
-
-
-            {/* =================================================
-                CONTACTO
-            ================================================= */}
-
-            <section className="formativa-contact-section">
-
-                <Container>
-
-                    <h2 className="formativa-section-title">
-
-                        Contacto
-
-                    </h2>
-
-
-                    <Form
-                        onSubmit={handleSubmit}
-                        className="formativa-form"
-                    >
-
-
-                        {/* ERROR */}
-
-                        {
-
-                            error && (
-
-                                <Alert
-                                    variant="danger"
-                                    role="alert"
-                                >
-
-                                    {error}
-
-                                </Alert>
-
-                            )
-
-                        }
-
-
-                        {/* ÉXITO */}
-
-                        {
-
-                            enviado && (
-
-                                <Alert
-                                    variant="success"
-                                    role="status"
-                                >
-
-                                    Mensaje enviado correctamente.
-
-                                </Alert>
-
-                            )
-
-                        }
-
-
-                        {/* NOMBRE */}
-
-                        <Form.Group className="mb-3">
-
-                            <Form.Label
-                                htmlFor="portfolio-nombre"
-                            >
-
-                                Nombre
-
-                            </Form.Label>
-
-
-                            <Form.Control
-                                id="portfolio-nombre"
-                                type="text"
-                                name="nombre"
-                                value={formulario.nombre}
-                                onChange={handleChange}
-                                placeholder="Ingresa tu nombre"
-                            />
-
-                        </Form.Group>
-
-
-                        {/* CORREO */}
-
-                        <Form.Group className="mb-3">
-
-                            <Form.Label
-                                htmlFor="portfolio-email"
-                            >
-
-                                Correo electrónico
-
-                            </Form.Label>
-
-
-                            <Form.Control
-                                id="portfolio-email"
-                                type="email"
-                                name="email"
-                                value={formulario.email}
-                                onChange={handleChange}
-                                placeholder="correo@ejemplo.cl"
-                            />
-
-                        </Form.Group>
-
-
-                        {/* MENSAJE */}
-
-                        <Form.Group className="mb-3">
-
-                            <Form.Label
-                                htmlFor="portfolio-mensaje"
-                            >
-
-                                Mensaje
-
-                            </Form.Label>
-
-
-                            <Form.Control
-                                id="portfolio-mensaje"
-                                as="textarea"
-                                rows={5}
-                                name="mensaje"
-                                value={formulario.mensaje}
-                                onChange={handleChange}
-                                placeholder="Escribe tu mensaje"
-                            />
-
-                        </Form.Group>
-
-
-                        {/* BOTÓN */}
-
-                        <Button
-                            variant="primary"
-                            type="submit"
-                        >
-
-                            Enviar mensaje
-
-                        </Button>
-
-                    </Form>
-
-                </Container>
-
-            </section>
-
-        </div>
-
+    setMensajeExito(
+      "Mensaje enviado correctamente."
     );
 
+
+    /*
+    ========================================================
+    LIMPIAR FORMULARIO
+    ========================================================
+    */
+
+    setNombre("");
+    setCorreo("");
+    setMensaje("");
+
+  };
+
+
+  /*
+  ==========================================================
+  CATEGORÍAS DE NOTICIAS
+  ==========================================================
+  */
+
+  const categoriasNoticias = [
+
+    ...new Set(
+
+      noticias.map(
+        (noticia) => noticia.categoria
+      )
+
+    )
+
+  ];
+
+
+  /*
+  ==========================================================
+  RETURN
+  ==========================================================
+  */
+
+  return (
+
+    <div className="portfolio-page">
+
+
+      {/* ==================================================
+          HERO DEL PORTAFOLIO
+      ================================================== */}
+
+      <section className="portfolio-hero">
+
+        <Container>
+
+          <Row className="align-items-center">
+
+
+            {/* ==============================================
+                TEXTO DEL PORTAFOLIO
+            ============================================== */}
+
+            <Col
+              xs={12}
+              lg={7}
+            >
+
+              <div className="portfolio-intro">
+
+                <p className="portfolio-label">
+
+                  EVALUACIÓN FORMATIVA N°2
+
+                </p>
+
+
+                <h1 className="portfolio-title">
+
+                  Mi Portafolio{" "}
+
+                  <span>
+
+                    LifeTrack
+
+                  </span>
+
+                </h1>
+
+
+                <p className="portfolio-description">
+
+                  Portafolio desarrollado utilizando React,
+                  React Bootstrap, componentes reutilizables,
+                  propiedades, State, archivos JSON, eventos
+                  y pruebas unitarias.
+
+                </p>
+
+
+                <Button
+                  href="#proyectos-portafolio"
+                  variant="primary"
+                  size="lg"
+                >
+
+                  Ver mis proyectos
+
+                </Button>
+
+              </div>
+
+            </Col>
+
+
+            {/* ==============================================
+                FOTO PERSONAL
+            ============================================== */}
+
+            <Col
+              xs={12}
+              lg={5}
+              className="text-center mt-5 mt-lg-0"
+            >
+
+              <div className="portfolio-profile">
+
+                {/*
+                La foto se encuentra en:
+
+                public/mario.jpg
+
+                BASE_URL permite que la imagen funcione
+                tanto en localhost como en GitHub Pages.
+                */}
+
+                <img
+                  src={`${import.meta.env.BASE_URL}mario.jpg`}
+                  alt="Mario González"
+                  className="portfolio-photo"
+                />
+
+
+                <h2 className="portfolio-name">
+
+                  Mario González
+
+                </h2>
+
+
+                <p className="portfolio-career">
+
+                  Estudiante de Ingeniería en Informática
+
+                </p>
+
+              </div>
+
+            </Col>
+
+          </Row>
+
+        </Container>
+
+      </section>
+
+
+      {/* ==================================================
+          SOBRE MÍ
+      ================================================== */}
+
+      <section className="portfolio-section">
+
+        <Container>
+
+          <div className="portfolio-section-header">
+
+            <p className="portfolio-label">
+
+              PERFIL
+
+            </p>
+
+
+            <h2 className="portfolio-section-title">
+
+              Sobre mí
+
+            </h2>
+
+          </div>
+
+
+          <AboutMe />
+
+        </Container>
+
+      </section>
+
+
+      {/* ==================================================
+          PROYECTOS
+      ================================================== */}
+
+      <section
+        id="proyectos-portafolio"
+        className="portfolio-section portfolio-projects-section"
+      >
+
+        <Container>
+
+          <div className="portfolio-section-header">
+
+            <p className="portfolio-label">
+
+              PROYECTOS
+
+            </p>
+
+
+            <h2 className="portfolio-section-title">
+
+              Mis proyectos
+
+            </h2>
+
+
+            <p className="portfolio-section-description">
+
+              Proyectos desarrollados durante mi formación
+              académica en distintas áreas de programación,
+              desarrollo web y bases de datos.
+
+            </p>
+
+          </div>
+
+
+          <Row className="g-4">
+
+            {/*
+            =================================================
+            MAP DE PROYECTOS
+
+            Se recorre proyectos.json y se genera
+            una tarjeta por cada proyecto.
+            =================================================
+            */}
+
+            {proyectos.map(
+              (proyecto, indice) => (
+
+                <Col
+                  xs={12}
+                  md={6}
+                  lg={4}
+                  key={
+                    proyecto.id ||
+                    indice
+                  }
+                >
+
+                  <PortfolioProjectCard
+                    proyecto={proyecto}
+                  />
+
+                </Col>
+
+              )
+            )}
+
+          </Row>
+
+        </Container>
+
+      </section>
+
+
+      {/* ==================================================
+          NOTICIAS
+      ================================================== */}
+
+      <section className="portfolio-section">
+
+        <Container>
+
+          <div className="portfolio-section-header">
+
+            <p className="portfolio-label">
+
+              ACTUALIDAD
+
+            </p>
+
+
+            <h2 className="portfolio-section-title">
+
+              Noticias
+
+            </h2>
+
+
+            <p className="portfolio-section-description">
+
+              Contenido relacionado con LifeTrack,
+              React, desarrollo web y tecnología.
+
+            </p>
+
+          </div>
+
+
+          {/*
+          ===================================================
+          NOTICIAS AGRUPADAS POR CATEGORÍA
+          ===================================================
+          */}
+
+          {categoriasNoticias.map(
+            (categoria) => (
+
+              <div
+                key={categoria}
+                className="portfolio-news-category"
+              >
+
+                <h3 className="portfolio-news-category-title">
+
+                  {categoria}
+
+                </h3>
+
+
+                <Row className="g-4">
+
+                  {noticias
+                    .filter(
+                      (noticia) =>
+                        noticia.categoria ===
+                        categoria
+                    )
+                    .map(
+                      (noticia, indice) => (
+
+                        <Col
+                          xs={12}
+                          md={6}
+                          key={
+                            noticia.id ||
+                            indice
+                          }
+                        >
+
+                          <NewsCard
+                            noticia={noticia}
+                          />
+
+                        </Col>
+
+                      )
+                    )}
+
+                </Row>
+
+              </div>
+
+            )
+          )}
+
+        </Container>
+
+      </section>
+
+
+      {/* ==================================================
+          CONTACTO
+      ================================================== */}
+
+      <section className="portfolio-section portfolio-contact-section">
+
+        <Container>
+
+          <Row className="justify-content-center">
+
+            <Col
+              xs={12}
+              lg={9}
+            >
+
+              <div className="portfolio-contact-header">
+
+                <p className="portfolio-label">
+
+                  CONTACTO
+
+                </p>
+
+
+                <h2 className="portfolio-section-title">
+
+                  Contacto
+
+                </h2>
+
+
+                <p className="portfolio-section-description">
+
+                  Completa el formulario para enviar
+                  un mensaje.
+
+                </p>
+
+              </div>
+
+
+              <div className="portfolio-contact-card">
+
+
+                {/* =========================================
+                    MENSAJE DE ERROR
+                ========================================= */}
+
+                {error && (
+
+                  <Alert variant="danger">
+
+                    {error}
+
+                  </Alert>
+
+                )}
+
+
+                {/* =========================================
+                    MENSAJE EXITOSO
+                ========================================= */}
+
+                {mensajeExito && (
+
+                  <Alert variant="success">
+
+                    {mensajeExito}
+
+                  </Alert>
+
+                )}
+
+
+                {/* =========================================
+                    FORMULARIO
+                ========================================= */}
+
+                <Form
+                  onSubmit={manejarEnvio}
+                >
+
+
+                  {/* NOMBRE */}
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="nombre"
+                  >
+
+                    <Form.Label>
+
+                      Nombre
+
+                    </Form.Label>
+
+
+                    <Form.Control
+                      type="text"
+                      placeholder="Ingresa tu nombre"
+                      value={nombre}
+                      onChange={
+                        (evento) =>
+                          setNombre(
+                            evento.target.value
+                          )
+                      }
+                    />
+
+                  </Form.Group>
+
+
+                  {/* CORREO */}
+
+                  <Form.Group
+                    className="mb-3"
+                    controlId="correo"
+                  >
+
+                    <Form.Label>
+
+                      Correo electrónico
+
+                    </Form.Label>
+
+
+                    <Form.Control
+                      type="email"
+                      placeholder="correo@ejemplo.cl"
+                      value={correo}
+                      onChange={
+                        (evento) =>
+                          setCorreo(
+                            evento.target.value
+                          )
+                      }
+                    />
+
+                  </Form.Group>
+
+
+                  {/* MENSAJE */}
+
+                  <Form.Group
+                    className="mb-4"
+                    controlId="mensaje"
+                  >
+
+                    <Form.Label>
+
+                      Mensaje
+
+                    </Form.Label>
+
+
+                    <Form.Control
+                      as="textarea"
+                      rows={5}
+                      placeholder="Escribe tu mensaje"
+                      value={mensaje}
+                      onChange={
+                        (evento) =>
+                          setMensaje(
+                            evento.target.value
+                          )
+                      }
+                    />
+
+                  </Form.Group>
+
+
+                  {/* BOTÓN */}
+
+                  <Button
+                    variant="primary"
+                    type="submit"
+                  >
+
+                    Enviar mensaje
+
+                  </Button>
+
+                </Form>
+
+              </div>
+
+            </Col>
+
+          </Row>
+
+        </Container>
+
+      </section>
+
+    </div>
+
+  );
+
 }
+
+
+/*
+============================================================
+EXPORTAR COMPONENTE
+============================================================
+*/
 
 export default Portafolio;

@@ -1,37 +1,105 @@
+/*
+=========================================================
+NEWSCARD.JSX
+
+Tarjeta reutilizable de noticias.
+
+La información llega mediante props.
+
+Este componente acepta tanto:
+- descripcion
+- contenido
+
+Esto permite trabajar con el JSON del proyecto
+y también con las pruebas unitarias.
+=========================================================
+*/
+
 import {
-    Card
+  Card,
+  Badge,
 } from "react-bootstrap";
+
 
 function NewsCard({ noticia }) {
 
-    return (
+  /*
+  =========================================================
+  TEXTO DE LA NOTICIA
 
-        <Card className="h-100 shadow portfolio-news-card">
+  Algunas noticias utilizan "descripcion"
+  y las pruebas pueden utilizar "contenido".
 
-            <Card.Body>
+  Se aceptan ambas propiedades.
+  =========================================================
+  */
 
-                <Card.Title>
-                    {noticia.titulo}
-                </Card.Title>
+  const textoNoticia =
+    noticia.descripcion ||
+    noticia.contenido ||
+    "";
 
-                <Card.Subtitle className="mb-3 text-muted">
 
-                    {noticia.fecha}
+  return (
 
-                </Card.Subtitle>
+    <Card className="portfolio-news-card h-100">
 
-                <Card.Text>
+      <Card.Body>
 
-                    {noticia.contenido}
+        {/* ==============================================
+            CATEGORÍA
+        ============================================== */}
 
-                </Card.Text>
+        <div className="portfolio-news-top">
 
-            </Card.Body>
+          <Badge bg="primary">
 
-        </Card>
+            {noticia.categoria}
 
-    );
+          </Badge>
+
+        </div>
+
+
+        {/* ==============================================
+            TÍTULO
+        ============================================== */}
+
+        <Card.Title>
+
+          {noticia.titulo}
+
+        </Card.Title>
+
+
+        {/* ==============================================
+            FECHA
+        ============================================== */}
+
+        <p className="portfolio-news-date">
+
+          {noticia.fecha}
+
+        </p>
+
+
+        {/* ==============================================
+            CONTENIDO
+        ============================================== */}
+
+        <Card.Text>
+
+          {textoNoticia}
+
+        </Card.Text>
+
+      </Card.Body>
+
+    </Card>
+
+  );
 
 }
+
 
 export default NewsCard;

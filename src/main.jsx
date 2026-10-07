@@ -1,93 +1,97 @@
-import React from "react";
+/*
+============================================================
+MAIN.JSX
+Punto de entrada principal de LifeTrack
+============================================================
+*/
 
+import React from "react";
 import ReactDOM from "react-dom/client";
 
-import {
-  BrowserRouter
-} from "react-router-dom";
+/*
+============================================================
+REACT ROUTER
+============================================================
+*/
+
+import { BrowserRouter } from "react-router-dom";
 
 
-/* =========================================================
-   APP PRINCIPAL
-========================================================= */
+/*
+============================================================
+BOOTSTRAP
+============================================================
+*/
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+/*
+============================================================
+CONTEXTOS DE LIFETRACK
+============================================================
+*/
+
+import { AuthProvider } from "./context/AuthContext.jsx";
+
+import { CartProvider } from "./context/CartContext.jsx";
+
+import { ProductProvider } from "./context/ProductContext.jsx";
+
+
+/*
+============================================================
+APP PRINCIPAL
+============================================================
+*/
 
 import App from "./App.jsx";
 
 
-/* =========================================================
-   CONTEXTOS
-========================================================= */
-
-import {
-  AuthProvider
-} from "./context/AuthContext.jsx";
-
-import {
-  CartProvider
-} from "./context/CartContext.jsx";
-
-import {
-  ProductProvider
-} from "./context/ProductContext.jsx";
-
-
-/* =========================================================
-   ESTILOS
-========================================================= */
-
-import "bootstrap/dist/css/bootstrap.min.css";
+/*
+============================================================
+ESTILOS GENERALES
+============================================================
+*/
 
 import "./styles.css";
 
 
-/* =========================================================
-   INICIO DE REACT
-========================================================= */
+/*
+============================================================
+RENDER PRINCIPAL
 
-ReactDOM
-  .createRoot(
+El basename es necesario porque GitHub Pages publica
+LifeTrack dentro de:
+
+/LifeTrack-Formativa2/
+============================================================
+*/
+
+ReactDOM.createRoot(
     document.getElementById("root")
-  )
-  .render(
+).render(
 
     <React.StrictMode>
 
-      {/* React Router controla las rutas */}
+        <BrowserRouter basename="/LifeTrack-Formativa2">
 
-      <BrowserRouter>
+            <AuthProvider>
 
+                <ProductProvider>
 
-        {/* Controla usuario y sesión */}
+                    <CartProvider>
 
-        <AuthProvider>
+                        <App />
 
+                    </CartProvider>
 
-          {/* Controla productos globales */}
+                </ProductProvider>
 
-          <ProductProvider>
+            </AuthProvider>
 
-
-            {/* Controla carrito de compras */}
-
-            <CartProvider>
-
-
-              {/* Aplicación completa */}
-
-              <App />
-
-
-            </CartProvider>
-
-
-          </ProductProvider>
-
-
-        </AuthProvider>
-
-
-      </BrowserRouter>
+        </BrowserRouter>
 
     </React.StrictMode>
 
-  );
+);

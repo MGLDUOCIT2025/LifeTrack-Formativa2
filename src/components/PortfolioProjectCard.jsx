@@ -1,57 +1,130 @@
+/*
+=========================================================
+PORTFOLIOPROJECTCARD.JSX
+
+Componente reutilizable para mostrar proyectos.
+
+Recibe la información mediante props.
+
+Este componente acepta tanto:
+- nombre
+- titulo
+
+Esto permite utilizar los proyectos reales del JSON
+y también los datos utilizados en las pruebas.
+=========================================================
+*/
+
 import {
-    Button,
-    Card
+  Card,
+  Button,
 } from "react-bootstrap";
+
 
 function PortfolioProjectCard({ proyecto }) {
 
-    return (
+  /*
+  =========================================================
+  NOMBRE DEL PROYECTO
 
-        <Card className="h-100 shadow portfolio-project-card">
+  El JSON puede utilizar "nombre".
+  Las pruebas pueden utilizar "titulo".
 
-            <Card.Img
-                variant="top"
-                src={proyecto.imagen}
-                alt={`Proyecto ${proyecto.titulo}`}
-                className="portfolio-project-image"
-            />
+  Se aceptan ambas propiedades.
+  =========================================================
+  */
 
-            <Card.Body className="d-flex flex-column">
+  const nombreProyecto =
+    proyecto.nombre ||
+    proyecto.titulo ||
+    "";
 
-                <Card.Title>
-                    {proyecto.titulo}
-                </Card.Title>
 
-                <Card.Text>
-                    {proyecto.descripcion}
-                </Card.Text>
+  return (
 
-                <Card.Text>
+    <Card className="portfolio-project-card h-100">
 
-                    <strong>
-                        Tecnologías utilizadas:
-                    </strong>
+      {/* ==============================================
+          IMAGEN
+      ============================================== */}
 
-                    <br />
+      <Card.Img
+        variant="top"
+        src={proyecto.imagen}
+        alt={nombreProyecto}
+        className="portfolio-project-image"
+      />
 
-                    {proyecto.tecnologias}
 
-                </Card.Text>
+      <Card.Body className="d-flex flex-column">
 
-                <Button
-                    variant="primary"
-                    href={proyecto.enlace}
-                    className="mt-auto"
-                >
-                    Ver proyecto
-                </Button>
+        {/* ==============================================
+            TÍTULO
+        ============================================== */}
 
-            </Card.Body>
+        <Card.Title>
 
-        </Card>
+          {nombreProyecto}
 
-    );
+        </Card.Title>
+
+
+        {/* ==============================================
+            DESCRIPCIÓN
+        ============================================== */}
+
+        <Card.Text>
+
+          {proyecto.descripcion}
+
+        </Card.Text>
+
+
+        {/* ==============================================
+            TECNOLOGÍAS
+        ============================================== */}
+
+        <div className="portfolio-project-tech">
+
+          <strong>
+
+            Tecnologías utilizadas:
+
+          </strong>
+
+
+          <p>
+
+            {proyecto.tecnologias}
+
+          </p>
+
+        </div>
+
+
+        {/* ==============================================
+            BOTÓN DEL PROYECTO
+        ============================================== */}
+
+        <Button
+          href={proyecto.enlace}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="primary"
+          className="mt-auto"
+        >
+
+          Ver proyecto
+
+        </Button>
+
+      </Card.Body>
+
+    </Card>
+
+  );
 
 }
+
 
 export default PortfolioProjectCard;

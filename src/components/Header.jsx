@@ -1,256 +1,317 @@
+/*
+============================================================
+HEADER.JSX
+Encabezado principal de LifeTrack
+============================================================
+*/
+
 import {
-  Link,
-  NavLink,
-  useNavigate
+    Link,
+    NavLink,
+    useNavigate
 } from "react-router-dom";
 
 import {
-  useAuth
+    useAuth
 } from "../context/AuthContext";
 
 import {
-  useCart
+    useCart
 } from "../context/CartContext";
 
 
 function Header() {
 
-  /* ====================================================
-     DATOS DE SESIÓN
-     ==================================================== */
+    /*
+    ============================================================
+    DATOS DE SESIÓN
+    ============================================================
+    */
 
-  const {
-    usuario,
-    logout
-  } = useAuth();
-
-
-  /* ====================================================
-     DATOS DEL CARRITO
-     ==================================================== */
-
-  const {
-    cantidadTotal
-  } = useCart();
+    const {
+        usuario,
+        logout
+    } = useAuth();
 
 
-  const navigate =
-    useNavigate();
+    /*
+    ============================================================
+    DATOS DEL CARRITO
+    ============================================================
+    */
+
+    const {
+        cantidadTotal
+    } = useCart();
 
 
-  /* ====================================================
-     CERRAR SESIÓN
-     ==================================================== */
+    /*
+    ============================================================
+    NAVEGACIÓN
+    ============================================================
+    */
 
-  function cerrarSesion() {
-
-    logout();
-
-    navigate("/");
-
-  }
+    const navigate = useNavigate();
 
 
-  return (
+    /*
+    ============================================================
+    CERRAR SESIÓN
+    ============================================================
+    */
 
-    <header className="header-principal">
+    function cerrarSesion() {
 
-      <div className="contenedor-header">
+        logout();
 
+        navigate("/");
 
-        {/* =============================================
-            LOGO
-        ============================================= */}
-
-        <Link
-          to="/"
-          className="logo-lifetrack"
-        >
-
-          <div className="logo-circulo">
-
-            ✓
-
-          </div>
+    }
 
 
-          <div>
+    return (
 
-            <h2>
-              LifeTrack
-            </h2>
+        <header className="header-principal">
 
-            <span>
-              Organiza tu día. Cumple tus metas.
-            </span>
-
-          </div>
-
-        </Link>
+            <div className="contenedor-header">
 
 
-        {/* =============================================
-            MENÚ
-        ============================================= */}
-
-        <nav className="menu-principal">
-
-          <NavLink to="/">
-            Inicio
-          </NavLink>
-
-          <NavLink to="/mi-dia">
-            Mi Día
-          </NavLink>
-
-          <NavLink to="/tareas">
-            Mis Tareas
-          </NavLink>
-
-          <NavLink to="/productos">
-            Tienda
-          </NavLink>
-
-          <NavLink to="/blog">
-            Blog
-          </NavLink>
-
-          <NavLink to="/nosotros">
-            Nosotros
-          </NavLink>
-
-          <NavLink to="/contacto">
-            Contacto
-          </NavLink>
-
-        </nav>
-
-
-        {/* =============================================
-            ACCIONES
-        ============================================= */}
-
-        <div className="acciones-header">
-
-
-          {/* CARRITO */}
-
-          <Link
-            to="/carrito"
-            className="icono-carrito"
-          >
-
-            🛒
-
-            {
-
-              cantidadTotal > 0 && (
-
-                <span className="contador-carrito">
-
-                  {cantidadTotal}
-
-                </span>
-
-              )
-
-            }
-
-          </Link>
-
-
-          {/* USUARIO SIN SESIÓN */}
-
-          {
-
-            !usuario && (
-
-              <>
+                {/* ==================================================
+                    LOGO
+                ================================================== */}
 
                 <Link
-                  to="/login"
-                  className="btn btn-outline-primary"
+                    to="/"
+                    className="logo-lifetrack"
                 >
 
-                  Iniciar sesión
+                    <div className="logo-circulo">
+
+                        ✓
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            LifeTrack
+                        </h2>
+
+                        <span>
+                            Organiza tu día. Cumple tus metas.
+                        </span>
+
+                    </div>
 
                 </Link>
 
 
-                <Link
-                  to="/registro"
-                  className="btn btn-primary"
-                >
 
-                  Registrarse
+                {/* ==================================================
+                    MENÚ PRINCIPAL
+                ================================================== */}
 
-                </Link>
-
-              </>
-
-            )
-
-          }
+                <nav className="menu-principal">
 
 
-          {/* USUARIO CON SESIÓN */}
+                    <NavLink to="/">
 
-          {
+                        Inicio
 
-            usuario && (
-
-              <>
-
-                <span className="usuario-header">
-
-                  👤 Hola, {usuario.nombre}
-
-                </span>
+                    </NavLink>
 
 
-                {
+                    <NavLink to="/mi-dia">
 
-                  usuario.rol === "admin" && (
+                        Mi Día
+
+                    </NavLink>
+
+
+                    <NavLink to="/tareas">
+
+                        Mis Tareas
+
+                    </NavLink>
+
+
+                    <NavLink to="/productos">
+
+                        Tienda
+
+                    </NavLink>
+
+
+                    <NavLink to="/blog">
+
+                        Blog
+
+                    </NavLink>
+
+
+                    <NavLink to="/nosotros">
+
+                        Nosotros
+
+                    </NavLink>
+
+
+                    <NavLink to="/contacto">
+
+                        Contacto
+
+                    </NavLink>
+
+
+
+                    {/* ==================================================
+                        BOTÓN PORTAFOLIO
+                        Evaluación Formativa N°2
+                    ================================================== */}
 
                     <Link
-                      to="/admin"
-                      className="btn btn-outline-primary"
+                        to="/portafolio"
+                        className="boton-portafolio-menu"
                     >
 
-                      Administrar
+                        💼 Portafolio
 
                     </Link>
 
-                  )
 
-                }
-
-
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  onClick={cerrarSesion}
-                >
-
-                  Cerrar sesión
-
-                </button>
-
-              </>
-
-            )
-
-          }
+                </nav>
 
 
-        </div>
+
+                {/* ==================================================
+                    ACCIONES DEL HEADER
+                ================================================== */}
+
+                <div className="acciones-header">
 
 
-      </div>
+                    {/* CARRITO */}
 
-    </header>
+                    <Link
+                        to="/carrito"
+                        className="icono-carrito"
+                    >
 
-  );
+                        🛒
+
+
+                        {
+                            cantidadTotal > 0 && (
+
+                                <span className="contador-carrito">
+
+                                    {cantidadTotal}
+
+                                </span>
+
+                            )
+                        }
+
+                    </Link>
+
+
+
+                    {/* ==================================================
+                        USUARIO SIN SESIÓN
+                    ================================================== */}
+
+                    {
+                        !usuario && (
+
+                            <>
+
+                                <Link
+                                    to="/login"
+                                    className="btn btn-outline-primary"
+                                >
+
+                                    Iniciar sesión
+
+                                </Link>
+
+
+                                <Link
+                                    to="/registro"
+                                    className="btn btn-primary"
+                                >
+
+                                    Registrarse
+
+                                </Link>
+
+                            </>
+
+                        )
+                    }
+
+
+
+                    {/* ==================================================
+                        USUARIO CON SESIÓN
+                    ================================================== */}
+
+                    {
+                        usuario && (
+
+                            <>
+
+                                <span className="usuario-header">
+
+                                    👤 Hola, {usuario.nombre}
+
+                                </span>
+
+
+                                {/* ADMINISTRADOR */}
+
+                                {
+                                    usuario.rol === "admin" && (
+
+                                        <Link
+                                            to="/admin"
+                                            className="btn btn-outline-primary"
+                                        >
+
+                                            Administrar
+
+                                        </Link>
+
+                                    )
+                                }
+
+
+                                {/* CERRAR SESIÓN */}
+
+                                <button
+                                    type="button"
+                                    className="btn btn-danger"
+                                    onClick={cerrarSesion}
+                                >
+
+                                    Cerrar sesión
+
+                                </button>
+
+                            </>
+
+                        )
+                    }
+
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+    );
 
 }
 

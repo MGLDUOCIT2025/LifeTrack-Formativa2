@@ -1,403 +1,709 @@
-/* ==========================================================
-   PORTFOLIO.CSS
-   Evaluación Formativa N°2
-   LifeTrack
-
-   Este CSS pertenece exclusivamente a la página Portafolio.
-   De esta manera evitamos afectar los estilos originales
-   del proyecto LifeTrack.
-   ========================================================== */
+/*
+=========================================================
+PORTFOLIO.CSS
+Estilos exclusivos del portafolio LifeTrack
+=========================================================
+*/
 
 
-/* ==========================================================
-   PÁGINA GENERAL
-   ========================================================== */
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-.formativa-page {
-    width: 100%;
-    min-height: 100vh;
+:root {
 
-    background-color: #f4f7fb;
+  --portfolio-blue: #0b356e;
 
-    color: #102f5e;
+  --portfolio-blue-light: #1478ff;
+
+  --portfolio-background: #f2f6fc;
+
+  --portfolio-white: #ffffff;
+
+  --portfolio-text: #12233f;
+
+  --portfolio-muted: #60718a;
+
 }
 
 
-/* ==========================================================
+/* =====================================================
+   PÁGINA
+===================================================== */
+
+.portfolio-page {
+
+  background:
+    var(--portfolio-background);
+
+  color:
+    var(--portfolio-text);
+
+}
+
+
+/* =====================================================
    HERO
-   ========================================================== */
+===================================================== */
 
-.formativa-hero {
-    width: 100%;
+.portfolio-hero {
 
-    min-height: 560px;
+  min-height: 650px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    padding: 80px 0;
+  background:
+    linear-gradient(
+      135deg,
+      #f7faff 0%,
+      #edf5ff 100%
+    );
 
-    background:
-        linear-gradient(
-            135deg,
-            #edf4fd 0%,
-            #f5f8fc 55%,
-            #e8f2ff 100%
-        );
 }
 
 
-/* ==========================================================
-   TEXTO SUPERIOR
-   ========================================================== */
+.min-vh-75 {
 
-.formativa-eyebrow {
-    margin-bottom: 20px;
+  min-height: 650px;
 
-    color: #0d4f9f;
-
-    font-size: 0.95rem;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
 }
 
 
-/* ==========================================================
-   TÍTULO
-   ========================================================== */
+.portfolio-eyebrow {
 
-.formativa-main-title {
-    margin-bottom: 20px;
+  color:
+    var(--portfolio-blue);
 
-    color: #082e63;
+  font-weight: 700;
 
-    font-size: 3.4rem;
+  letter-spacing: 2px;
 
-    font-weight: 800;
+  font-size: 0.9rem;
 
-    line-height: 1.1;
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
+
 }
 
 
-.formativa-main-title span {
-    color: #1673e6;
+.portfolio-hero h1 {
+
+  font-size: 3rem;
+
+  font-weight: 800;
+
+  color:
+    var(--portfolio-blue);
+
+  margin-bottom: 20px;
+
 }
 
 
-/* ==========================================================
-   DESCRIPCIÓN
-   ========================================================== */
+.portfolio-hero h1 span {
 
-.formativa-description {
-    max-width: 700px;
+  color:
+    var(--portfolio-blue-light);
 
-    margin-bottom: 30px;
-
-    color: #334e70;
-
-    font-size: 1.1rem;
-
-    line-height: 1.7;
 }
 
 
-/* ==========================================================
-   PERFIL
-   ========================================================== */
+.portfolio-intro {
 
-.formativa-profile {
-    width: 100%;
+  color:
+    var(--portfolio-muted);
 
-    display: flex;
+  font-size: 1.1rem;
 
-    flex-direction: column;
+  line-height: 1.8;
 
-    align-items: center;
+  max-width: 650px;
 
-    justify-content: center;
+  margin-bottom: 30px;
 
-    text-align: center;
 }
 
 
-/* ==========================================================
+/* =====================================================
    FOTO
+===================================================== */
 
-   IMPORTANT:
-   Utilizamos una clase exclusiva para evitar que otras
-   reglas de imágenes de LifeTrack modifiquen el tamaño.
-   ========================================================== */
+.portfolio-photo {
 
-.formativa-profile-photo {
-    width: 190px !important;
-    height: 190px !important;
+  width: 190px;
 
-    max-width: 190px !important;
-    max-height: 190px !important;
+  height: 190px;
 
-    min-width: 190px;
-    min-height: 190px;
+  object-fit: cover;
 
-    display: block;
+  object-position: center;
 
-    object-fit: cover !important;
+  border-radius: 50%;
 
-    object-position: center 25% !important;
+  border:
+    7px solid white;
 
-    border-radius: 50% !important;
+  box-shadow:
+    0 15px 35px
+    rgba(0, 0, 0, 0.18);
 
-    border: 7px solid #ffffff;
+  margin-bottom: 20px;
 
-    box-shadow:
-        0 14px 35px
-        rgba(8, 46, 99, 0.22);
-
-    margin:
-        0
-        auto
-        20px
-        auto;
 }
 
 
-/* ==========================================================
-   NOMBRE
-   ========================================================== */
+.portfolio-name {
 
-.formativa-profile h2 {
-    margin-bottom: 8px;
+  font-weight: 700;
 
-    color: #082e63;
+  color:
+    var(--portfolio-blue);
 
-    font-size: 2rem;
+  margin-bottom: 5px;
 
-    font-weight: 700;
 }
 
 
-.formativa-profile p {
-    margin: 0;
+.portfolio-career {
 
-    color: #496581;
+  color:
+    var(--portfolio-muted);
 
-    font-size: 1.05rem;
 }
 
 
-/* ==========================================================
-   CONTENIDO SOBRE MÍ
-   ========================================================== */
+/* =====================================================
+   SECCIONES
+===================================================== */
 
-.formativa-content-section {
-    padding: 15px 0 30px 0;
+.portfolio-section {
 
-    background-color: #f4f7fb;
+  padding:
+    90px 0;
+
 }
 
 
-/* ==========================================================
+.portfolio-section-title {
+
+  color:
+    var(--portfolio-blue);
+
+  font-size:
+    2.3rem;
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    30px;
+
+}
+
+
+.portfolio-heading-center {
+
+  text-align:
+    center;
+
+  margin-bottom:
+    50px;
+
+}
+
+
+.portfolio-heading-center
+.portfolio-section-title {
+
+  margin-bottom:
+    15px;
+
+}
+
+
+.portfolio-section-description {
+
+  color:
+    var(--portfolio-muted);
+
+  max-width:
+    650px;
+
+  margin:
+    0 auto;
+
+  line-height:
+    1.8;
+
+}
+
+
+/* =====================================================
+   SOBRE MÍ
+===================================================== */
+
+.portfolio-about-card {
+
+  border:
+    none;
+
+  border-radius:
+    20px;
+
+  padding:
+    25px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(22, 47, 85, 0.1);
+
+}
+
+
+.portfolio-about-card h3 {
+
+  color:
+    var(--portfolio-blue);
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.portfolio-about-card p {
+
+  color:
+    var(--portfolio-muted);
+
+  line-height:
+    1.8;
+
+}
+
+
+.portfolio-about-role {
+
+  color:
+    var(--portfolio-blue-light)
+    !important;
+
+  font-weight:
+    600;
+
+}
+
+
+.portfolio-skills {
+
+  background:
+    #eff5ff;
+
+  padding:
+    30px;
+
+  border-radius:
+    18px;
+
+}
+
+
+.portfolio-skills h4 {
+
+  color:
+    var(--portfolio-blue);
+
+  font-weight:
+    700;
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.portfolio-badges {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    10px;
+
+}
+
+
+.portfolio-badges
+.badge {
+
+  font-size:
+    0.9rem;
+
+  padding:
+    10px 14px;
+
+}
+
+
+/* =====================================================
    PROYECTOS
-   ========================================================== */
+===================================================== */
 
-.formativa-projects-section {
-    padding: 80px 0;
+.portfolio-projects-section {
 
-    background:
-        linear-gradient(
-            135deg,
-            #082e63,
-            #104e99
-        );
+  background:
+    #eaf2ff;
+
 }
 
 
-/* ==========================================================
-   TÍTULOS DE SECCIONES
-   ========================================================== */
+.portfolio-project-card {
 
-.formativa-section-title {
-    margin-bottom: 45px;
+  border:
+    none;
 
-    text-align: center;
+  border-radius:
+    18px;
 
-    color: #082e63;
+  overflow:
+    hidden;
 
-    font-size: 2.5rem;
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.1);
 
-    font-weight: 800;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
 }
 
 
-.formativa-section-title.light {
-    color: white;
+.portfolio-project-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  box-shadow:
+    0 20px 40px
+    rgba(0, 0, 0, 0.15);
+
 }
 
 
-/* ==========================================================
+.portfolio-project-image {
+
+  height:
+    240px;
+
+  object-fit:
+    cover;
+
+}
+
+
+.portfolio-project-card
+.card-body {
+
+  padding:
+    25px;
+
+}
+
+
+.portfolio-project-card
+.card-title {
+
+  color:
+    var(--portfolio-blue);
+
+  font-size:
+    1.4rem;
+
+  font-weight:
+    700;
+
+}
+
+
+.portfolio-project-card
+.card-text {
+
+  color:
+    var(--portfolio-muted);
+
+  line-height:
+    1.7;
+
+}
+
+
+.portfolio-project-tech {
+
+  color:
+    var(--portfolio-muted);
+
+  margin-bottom:
+    20px;
+
+}
+
+
+.portfolio-project-tech
+strong {
+
+  color:
+    var(--portfolio-text);
+
+}
+
+
+/* =====================================================
    NOTICIAS
-   ========================================================== */
+===================================================== */
 
-.formativa-news-section {
-    padding: 80px 0;
+.portfolio-news-section {
 
-    background-color: #f4f7fb;
+  background:
+    white;
+
 }
 
 
-.formativa-news-title {
-    margin-bottom: 25px;
+.portfolio-news-group {
 
-    color: #082e63;
+  margin-bottom:
+    50px;
 
-    font-size: 1.8rem;
-
-    font-weight: 700;
 }
 
 
-/* ==========================================================
+.portfolio-news-group h3 {
+
+  color:
+    var(--portfolio-blue);
+
+  margin-bottom:
+    25px;
+
+}
+
+
+.portfolio-news-card {
+
+  border:
+    none;
+
+  border-radius:
+    16px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.08);
+
+}
+
+
+.portfolio-news-card
+.card-body {
+
+  padding:
+    25px;
+
+}
+
+
+.portfolio-news-top {
+
+  margin-bottom:
+    18px;
+
+}
+
+
+.portfolio-news-card
+.card-title {
+
+  color:
+    var(--portfolio-blue);
+
+  font-weight:
+    700;
+
+}
+
+
+.portfolio-news-date {
+
+  color:
+    #8a96a8;
+
+  font-size:
+    0.9rem;
+
+}
+
+
+.portfolio-news-card
+.card-text {
+
+  color:
+    var(--portfolio-muted);
+
+  line-height:
+    1.7;
+
+}
+
+
+/* =====================================================
    CONTACTO
-   ========================================================== */
+===================================================== */
 
-.formativa-contact-section {
-    padding: 80px 0;
+.portfolio-contact-section {
 
-    background-color: #e7effa;
+  background:
+    linear-gradient(
+      135deg,
+      #edf4ff,
+      #e4efff
+    );
+
 }
 
 
-.formativa-form {
-    width: 100%;
+.portfolio-contact-card {
 
-    max-width: 800px;
+  background:
+    white;
 
-    margin: 0 auto;
+  padding:
+    40px;
 
-    padding: 35px;
+  border-radius:
+    20px;
 
-    background-color: white;
+  box-shadow:
+    0 15px 40px
+    rgba(0, 0, 0, 0.1);
 
-    border-radius: 18px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(8, 46, 99, 0.12);
 }
 
 
-/* ==========================================================
-   BOTONES
-   ========================================================== */
+.portfolio-contact-card
+.form-control {
 
-.formativa-page .btn-primary {
+  min-height:
+    48px;
+
+}
+
+
+.portfolio-contact-card
+textarea.form-control {
+
+  min-height:
+    140px;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media screen and
+(max-width: 991px) {
+
+  .portfolio-hero {
+
     padding:
-        11px
-        25px;
+      80px 0;
 
-    border-radius: 8px;
-
-    font-weight: 600;
-}
+  }
 
 
-/* ==========================================================
-   TABLET
-   ========================================================== */
+  .min-vh-75 {
 
-@media screen and (max-width: 991px) {
+    min-height:
+      auto;
 
-    .formativa-hero {
-        min-height: auto;
-
-        padding:
-            65px
-            20px;
-    }
+  }
 
 
-    .formativa-main-title {
-        font-size: 2.8rem;
-    }
+  .portfolio-hero h1 {
+
+    font-size:
+      2.4rem;
+
+  }
 
 
-    .formativa-profile {
-        margin-top: 25px;
-    }
+  .portfolio-photo {
 
+    width:
+      160px;
 
-    .formativa-profile-photo {
-        width: 170px !important;
-        height: 170px !important;
+    height:
+      160px;
 
-        max-width: 170px !important;
-        max-height: 170px !important;
-
-        min-width: 170px;
-        min-height: 170px;
-    }
+  }
 
 }
 
 
-/* ==========================================================
-   CELULAR
-   ========================================================== */
+@media screen and
+(max-width: 576px) {
 
-@media screen and (max-width: 576px) {
+  .portfolio-hero h1 {
 
-    .formativa-hero {
-        padding:
-            50px
-            15px;
-    }
+    font-size:
+      2rem;
+
+  }
 
 
-    .formativa-main-title {
-        font-size: 2.2rem;
-    }
+  .portfolio-section {
+
+    padding:
+      60px 0;
+
+  }
 
 
-    .formativa-description {
-        font-size: 1rem;
-    }
+  .portfolio-section-title {
+
+    font-size:
+      1.9rem;
+
+  }
 
 
-    .formativa-profile-photo {
-        width: 145px !important;
-        height: 145px !important;
+  .portfolio-contact-card {
 
-        max-width: 145px !important;
-        max-height: 145px !important;
+    padding:
+      25px 18px;
 
-        min-width: 145px;
-        min-height: 145px;
-    }
+  }
 
 
-    .formativa-profile h2 {
-        font-size: 1.6rem;
-    }
+  .portfolio-photo {
 
+    width:
+      145px;
 
-    .formativa-section-title {
-        font-size: 2rem;
-    }
+    height:
+      145px;
 
-
-    .formativa-projects-section,
-    .formativa-news-section,
-    .formativa-contact-section {
-        padding:
-            55px
-            15px;
-    }
-
-
-    .formativa-form {
-        padding: 20px;
-    }
+  }
 
 }

@@ -1,101 +1,155 @@
+/*
+=========================================================
+ABOUTME.JSX
+Componente reutilizable para información personal.
+=========================================================
+*/
+
 import {
-    Card,
-    Col,
-    Container,
-    Row
+  Card,
+  Row,
+  Col,
+  Badge,
 } from "react-bootstrap";
+
 
 function AboutMe() {
 
-    return (
+  /*
+  =======================================================
+  TECNOLOGÍAS
+  =======================================================
+  */
 
-        <section
-            id="sobre-mi"
-            className="portfolio-section"
-        >
+  const tecnologias = [
 
-            <Container>
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "React",
+    "React Bootstrap",
+    "SQL",
+    "PL/SQL",
+    "Kotlin",
+    "Git",
+    "GitHub",
 
-                <h2 className="portfolio-title">
-                    Sobre mí
-                </h2>
+  ];
 
-                <Row className="justify-content-center">
 
-                    <Col
-                        xs={12}
-                        md={10}
-                        lg={8}
-                    >
+  return (
 
-                        <Card className="portfolio-about-card shadow">
+    <Card className="portfolio-about-card">
 
-                            <Card.Body>
+      <Card.Body>
 
-                                <Card.Title>
-                                    Mario González
-                                </Card.Title>
+        <Row className="align-items-center">
 
-                                <Card.Subtitle className="mb-3 text-muted">
-                                    Estudiante de Ingeniería en Informática
-                                </Card.Subtitle>
+          <Col
+            xs={12}
+            lg={7}
+          >
 
-                                <Card.Text>
+            <p className="portfolio-about-role">
 
-                                    Actualmente estudio Ingeniería en
-                                    Informática y desarrollo proyectos
-                                    relacionados con programación,
-                                    desarrollo web, bases de datos y
-                                    aplicaciones.
+              Estudiante de Ingeniería en Informática
 
-                                </Card.Text>
+            </p>
 
-                                <Card.Text>
 
-                                    Además cuento con experiencia profesional
-                                    en logística y comercio exterior, por lo
-                                    que busco combinar el conocimiento de
-                                    procesos reales con soluciones
-                                    tecnológicas.
+            <h3>
 
-                                </Card.Text>
+              Mario González
 
-                                <h3 className="portfolio-subtitle">
-                                    Tecnologías
-                                </h3>
+            </h3>
 
-                                <ul>
 
-                                    <li>HTML5 y CSS3</li>
+            <p>
 
-                                    <li>JavaScript</li>
+              Actualmente estudio Ingeniería en
+              Informática y desarrollo proyectos
+              relacionados con programación,
+              desarrollo web, bases de datos y
+              aplicaciones.
 
-                                    <li>React</li>
+            </p>
 
-                                    <li>React Bootstrap</li>
 
-                                    <li>SQL y PL/SQL</li>
+            <p>
 
-                                    <li>Kotlin</li>
+              Además cuento con experiencia
+              profesional en logística y comercio
+              exterior, por lo que busco combinar
+              conocimientos de procesos reales
+              con soluciones tecnológicas.
 
-                                    <li>Git y GitHub</li>
+            </p>
 
-                                </ul>
 
-                            </Card.Body>
+            <p>
 
-                        </Card>
+              Mi objetivo es continuar desarrollando
+              habilidades en programación,
+              automatización, bases de datos,
+              desarrollo web y creación de
+              soluciones digitales.
 
-                    </Col>
+            </p>
 
-                </Row>
+          </Col>
 
-            </Container>
 
-        </section>
+          <Col
+            xs={12}
+            lg={5}
+            className="mt-4 mt-lg-0"
+          >
 
-    );
+            <div className="portfolio-skills">
+
+              <h4>
+
+                Tecnologías
+
+              </h4>
+
+
+              <div className="portfolio-badges">
+
+                {
+
+                  tecnologias.map(
+                    (tecnologia) => (
+
+                      <Badge
+                        bg="primary"
+                        key={tecnologia}
+                      >
+
+                        {tecnologia}
+
+                      </Badge>
+
+                    )
+                  )
+
+                }
+
+              </div>
+
+            </div>
+
+          </Col>
+
+        </Row>
+
+      </Card.Body>
+
+    </Card>
+
+  );
 
 }
+
 
 export default AboutMe;
